@@ -1,7 +1,4 @@
-# Overwatch en résumé
-Overwatch est un jeu de tir à la première personne en équipe développé par Blizzard Entertainment. Lancé en 2016, il se déroule dans un futur optimiste où des héros aux capacités uniques s'affrontent dans diverses missions à travers le monde.
-
-## 🔶Introduction au projet
+# 🔶Introduction au projet
 **Overhub** est une plateforme web communautaire dédiée à l'univers d'Overwatch, conçue pour rassembler les passionnés du jeu en un lieu de" présentation des héros et de leur abilités et aussi un centre d'échange et d'information.
 
 Overhub a été créé avec l'ambition de devenir un carrefour pour les joueurs d'Overwatch qui souhaitent :
@@ -12,6 +9,9 @@ Overhub a été créé avec l'ambition de devenir un carrefour pour les joueurs 
 - Construire une communauté active et bienveillante autour du jeu.
 
 Cette plateforme offre à la fois une base de données sur les personnages de l'univers d'Overwatch et un espace social interactif pour échanger avec d'autres passionnés du jeu.
+
+## 🎮 Overwatch en résumé
+Overwatch est un jeu de tir à la première personne en équipe développé par Blizzard Entertainment. Lancé en 2016, il se déroule dans un futur optimiste où des héros aux capacités uniques s'affrontent dans diverses missions à travers le monde.
 
 ## 🛠️ Méthodologie de travail
 Voici les étapes que j’ai suivies pour mener à bien ce projet d’application autour du jeu Overwatch :
@@ -33,7 +33,7 @@ Voici les étapes que j’ai suivies pour mener à bien ce projet d’applicatio
 - [Overwatch.Fandom](https://overwatch.fandom.com/wiki/Overwatch_Wiki): Wiki communautaire très complet utilisé comme base pour collecter des informations sur les héros, leurs capacités, leurs rôles et les dernières mises à jour du jeu.
 - [Overwatch.Blizzard](https://overwatch.blizzard.com/fr-fr/): Site officiel du jeu, utilisé pour vérifier l’exactitude des données, récupérer des visuels officiels et obtenir des descriptions à jour directement de la source.
 
-### 3. 🎮 Listes des fonctionnalités principales
+### 3. 🌟Listes des fonctionnalités principales
 1. **Encyclopédie des héros**
 - Base de données complète de tous les personnages d'Overwatch
 - Fiches détaillées incluant biographies, capacités...
@@ -73,12 +73,20 @@ overhub/
 - **Cartes Héros**: 
 - **Formulaire de contact**:
 - **Formulaire de login**: 
-2. Adaptation responsive pour une utilisation sur différents appareils avec TailwinCss.
+2. Adaptation responsive pour une utilisation sur différents appareils avec TailwindCss.
 
-## Problèmes rencontrés et solutions trouvés
+## 🎯Étapes de développement de l'application
+1. Création de l'application avec le terminal en utilisant la commande symfony qu'il faut.
+2. Installation de la framework **TailwindCss** et des **fixtures**.
+3. Création des différents controlleurs dont j'aurais besoin. Je les configure dans la nav et aussi les rajoute tous dans le controlleur principal IndexController. 
+- Cela me permet d'avoir moins de fichier et de tout avoir au même endroit.
+4. J'ai ensuite crée la base de données avec une commande symfony et configuré le fichier de connexion.
+5. Je crée les différentes entités de ma base de données.
+
+## ⚡Problèmes rencontrés et solutions trouvés
 | Problème  | Solution  | Notes |
 | :------------ |:---------------:| -----:|
-| Hotwired/stimulus Not Found|Supprimer `bootstrap.js` et le dossier `controllers` aussi. Supprimer aussi les dépendances qui correspondent dans le fichier `importmap.php`. Ensuite taper la commande : `composer remove symfony/stimulus-bundle symfony/ux-turbo` pour bien retirer les dépendances. | J'ai supprimer ce problème avant de le rencontrer car dans toutes mes applications il est toujours apparu tôt ou tard. Je ne veux pas qu'il intérrompe mon rythme de travail donc je préfère m'en débarasser avant qu'il n'arrive.|
-|      |         |           |
+| @Hotwired/stimulus Not Found |Supprimer `bootstrap.js` et le dossier `controllers` aussi. Supprimer aussi les dépendances qui correspondent dans le fichier `importmap.php`. Ensuite taper la commande : `composer remove symfony/stimulus-bundle symfony/ux-turbo` pour bien retirer les dépendances. |Je n'ai pas encore rencontré ce problème sur le moment mais il apparaît toujours plus tard dans mes applications. Je ne veux pas qu'il intérrompe mon rythme de travail donc je préfère m'en débarasser avant qu'il n'arrive.|
+| Messengers_message    |   Supprimer le fichier dans le `package/messenger.yaml` puis faire ma migration afin qu'elle soit prise en compte.     |    Comme recommendé je l'ai supprimé directement pour éviter tout conflit futur.       |
 |       |        |           |
 ## Fin
