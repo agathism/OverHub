@@ -75,5 +75,10 @@ overhub/
 - **Formulaire de login**: 
 2. Adaptation responsive pour une utilisation sur différents appareils avec TailwinCss.
 
-## Impression et ressenti au cours du développement de l'appli
+## Problèmes rencontrés et solutions trouvés
+| Problème  | Solution  | Notes |
+| :------------ |:---------------:| -----:|
+| Hotwired/stimulus Not Found|Supprimer `bootstrap.js` et le dossier `controllers` aussi. Supprimer aussi les dépendances qui correspondent dans le fichier `importmap.php`. Ensuite taper la commande : `composer remove symfony/stimulus-bundle symfony/ux-turbo` pour bien retirer les dépendances. | J'ai supprimer ce problème avant de le rencontrer car dans toutes mes applications il est toujours apparu tôt ou tard. Je ne veux pas qu'il intérrompe mon rythme de travail donc je préfère m'en débarasser avant qu'il n'arrive.|
+|      |         |           |
+|       |        |           |
 ## Fin
