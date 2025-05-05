@@ -1,4 +1,7 @@
-<nav class=" text-black flex justify-center mb-0 my-4 sm:flex-row">
+<nav class=" text-black flex justify-around mb-0 my-4 sm:flex-row">
+<div>
+  <a href="{{path('homepage')}}"><img class="w-30 h-20" src="{{ asset('images/overwatch_logo_with_text_large.svg') }}" alt="Overhub Logo"></a>
+</div>
   <ul class="flex justify-center text-xl">
     <li class="list-none">
       <a class=" translate-all block py-4 px-5 list-none" href="{{path('homepage')}}">Home</a>
@@ -12,16 +15,4 @@
     <li class="list-none">
       <a class=" translate-all block py-4 px-5 list-none" href="{{path('app_login')}}">Login</a>
     </li>
-    {# {% if is_granted('ROLE_ADMIN') %}
-    <li>
-      <a class=" translate-all block py-4 px-5 list-none" href="{{path('app_profile')}}">Profile</a>
-    </li>
-    <li>
-      <a class=" translate-all block py-4 px-5 list-none" href="{{path('app_logout')}}">Déconnexion</a>
-    </li>
-    {% else %}
-    <li>
-      <a class=" translate-all block py-4 px-5 list-none" href="{{path('app_login')}}">Login</a>
-    </li>
-    {% endif %} #}
 </nav>
