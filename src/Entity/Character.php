@@ -33,6 +33,9 @@ class Character
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[ORM\ManyToOne]
+    private ?roles $role = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +109,18 @@ class Character
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getRole(): ?roles
+    {
+        return $this->role;
+    }
+
+    public function setRole(?roles $role): static
+    {
+        $this->role = $role;
 
         return $this;
     }

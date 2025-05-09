@@ -78,10 +78,11 @@ overhub/
 ## 🎯Étapes de développement de l'application
 1. Création de l'application avec le terminal en utilisant la commande symfony qu'il faut.
 2. Installation de la framework **TailwindCss** et des **fixtures**.
-3. Création des différents controlleurs dont j'aurais besoin. Je les configure dans la nav et aussi les rajoute tous dans le controlleur principal IndexController. 
-- Cela me permet d'avoir moins de fichier et de tout avoir au même endroit.
+3. Création des différents controlleurs dont j'aurais besoin. Je les configure dans la nav et aussi les rajoute tous dans le controlleur principal IndexController. Cela me permet d'avoir moins de fichier et de tout avoir au même endroit.
 4. J'ai ensuite crée la base de données avec une commande symfony et configuré le fichier de connexion.
 5. Je crée les différentes entités de ma base de données.
+6. J'ai remplis la BDD.
+
 
 ## ⚡Problèmes rencontrés et solutions trouvés
 | Problème  | Solution  | Notes |
