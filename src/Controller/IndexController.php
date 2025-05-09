@@ -2,9 +2,17 @@
 
 namespace App\Controller;
 
+use App\Mail\NewsletterSubscribedConfirmation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Contact;
+use App\Form\ContactType;
+use App\Form\ProfileType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Mime\Email;
+
 
 final class IndexController extends AbstractController
 {
@@ -20,27 +28,36 @@ final class IndexController extends AbstractController
         return $this->render('index/heroes.html.twig');
     }
 
-    #[Route('/login', name: 'app_login')]
-    public function login(): Response
-    {
-        return $this->render('index/login.html.twig');
-    }
-
-    #[Route('/logout', name: 'app_logout')]
-    public function logout(): Response
-    {
-        return $this->render('index/logout.html.twig');
-    }
-
-    #[Route('/profile', name: 'app_profile')]
-    public function profile(): Response
-    {
-        return $this->render('index/profile.html.twig');
-    }
-
     #[Route('/contact', name: 'app_contact')]
-    public function contact(): Response
+    public function contact(Request $request, EntityManagerInterface $em): Response
     {
-        return $this->render('index/contact.html.twig');
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            //enregistrer le message dans la base de données
+            $em->persist($contact);
+            $em->flush();
+
+            //envoyer un email de confirmation
+            // Construire le message
+            $email = (new Email())
+            ->from('admin@overhub.fr')
+            ->to($contact->getEmail())
+            ->subject('Welcome!')
+            ->text('Your email ' . $contact->getEmail() . ' has been successfully registered for the newsletter.')
+            ->html('<p>Your Email' . $contact->getEmail() . ' has been successfully registered for the newsletter.</p>');
+
+            // // Envoyer le message
+            // $mailer->send($email);
+
+            // Ajouter un message flash
+            $this->addFlash('success', 'You have successfully sent your mail.');
+        }
+        return $this->render('index/contact.html.twig', [
+        'contactForm' => $form 
+    ]);
     }
 }

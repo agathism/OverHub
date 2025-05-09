@@ -12,7 +12,16 @@
     <li class="list-none">
       <a class=" translate-all block py-4 px-5 list-none" href="{{path('app_contact')}}">Contact</a>
     </li>
-    <li class="list-none">
-      <a class=" translate-all block py-4 px-5 list-none" href="{{path('app_login')}}">Login</a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <li>
+      <a class="hover:bg-zinc-200 translate-all block py-4 px-5 list-none" href="{{path('app_profile')}}">Profile</a>
     </li>
+    <li>
+      <a class="hover:bg-zinc-200 translate-all block py-4 px-5 list-none" href="{{path('app_logout')}}">Disconnect</a>
+    </li>
+    {% else %}
+    <li>
+      <a class="hover:bg-zinc-200 translate-all block py-4 px-5 list-none" href="{{path('app_login')}}">Login</a>
+    </li>
+    {% endif %}
 </nav>
