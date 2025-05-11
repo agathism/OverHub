@@ -34,7 +34,7 @@ class Character
     private ?string $description = null;
 
     #[ORM\ManyToOne]
-    private ?roles $role = null;
+    private ?Role $role = null;
 
     public function getId(): ?int
     {
@@ -113,12 +113,12 @@ class Character
         return $this;
     }
 
-    public function getRole(): ?roles
+    public function getRole(): ?Role
     {
         return $this->role;
     }
 
-    public function setRole(?roles $role): static
+    public function setRole(?Role $role): static
     {
         $this->role = $role;
 
