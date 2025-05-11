@@ -4,24 +4,24 @@
 </div>
   <ul class="flex justify-center text-xl">
     <li class="list-none">
-      <a class=" translate-all block py-4 px-5 list-none" href="{{path('homepage')}}">Home</a>
+      <a class=" translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('homepage')}}">Home</a>
     </li>
     <li class="list-none">
-      <a class=" translate-all block py-4 px-5 list-none" href="{{path('app_heroes')}}">Heroes</a>
+      <a class=" translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_heroes')}}">Heroes</a>
     </li>
     <li class="list-none">
-      <a class=" translate-all block py-4 px-5 list-none" href="{{path('app_contact')}}">Contact</a>
+      <a class=" translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_contact')}}">Contact</a>
     </li>
     {% if is_granted('ROLE_ADMIN') %}
     <li>
-      <a class="hover:bg-zinc-200 translate-all block py-4 px-5 list-none" href="{{path('app_profile')}}">Profile</a>
+      <a class="translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_profile')}}">Profile</a>
     </li>
     <li>
-      <a class="hover:bg-zinc-200 translate-all block py-4 px-5 list-none" href="{{path('app_logout')}}">Disconnect</a>
+      <a class="translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_logout')}}">Disconnect</a>
     </li>
     {% else %}
     <li>
-      <a class="hover:bg-zinc-200 translate-all block py-4 px-5 list-none" href="{{path('app_login')}}">Login</a>
+      <a class="translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_login')}}">Login</a>
     </li>
     {% endif %}
 </nav>

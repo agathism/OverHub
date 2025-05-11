@@ -1,7 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Heroes{% endblock %}
+{% block title %}
+  Heroes
+{% endblock %}
 
 {% block body %}
+  <main>
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold text-ow-violet mb-8">Tous les héros</h1>
 
+      <!-- Je vais mettre des filtres ici pour faciliter la navigation -->
+      <div class="bg-ow-dark-blue text-white p-4 rounded-lg mb-8">
+        <div class="flex flex-wrap gap-4">
+          <button class="px-4 py-2 bg-ow-violet rounded hover:bg-opacity-90">Tous</button>
+          <button class="px-4 py-2 hover:bg-ow-violet rounded">Tank</button>
+          <button class="px-4 py-2 hover:bg-ow-violet rounded">DPS</button>
+          <button class="px-4 py-2 hover:bg-ow-violet rounded">Support</button>
+        </div>
+      </div>
+
+      <!-- Heros -->
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {% for character in characters %}
+          <div class="relative w-[200px] h-[250px] rounded-[14px] z-[1111] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,_-20px_-20px_60px_#ffffff]">
+            <div class="absolute top-[5px] left-[5px] w-[190px] h-[240px] z-[2] rounded-[10px] overflow-hidden outline outline-[2px] outline-white backdrop-blur-[24px] bg-white/95">
+              <img src="{{ asset(character.image) }}" alt="{{ character.name }}" class="w-full h-full object-cover" />
+            </div>
+            <div class="absolute z-[1] top-1/2 left-1/2 w-[150px] h-[150px] rounded-full bg-ow-violet opacity-100 blur-[12px] animate-blob-bounce"></div>
+            <h3 class="text-ow-violet font-bold">{{ character.name }}</h3>
+            <span class="text-sm text-gray-600">{{ character.role }}</span>
+          </div>
+        {% endfor %}
+        </main>
 {% endblock %}
