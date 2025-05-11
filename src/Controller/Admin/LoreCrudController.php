@@ -15,7 +15,7 @@ class LoreCrudController extends AbstractCrudController
         return Lore::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -24,5 +24,4 @@ class LoreCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];
     }
-    */
 }

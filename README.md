@@ -75,10 +75,10 @@ overhub/
 - **Formulaire de login**: 
 2. Adaptation responsive pour une utilisation sur différents appareils avec TailwindCss.
 
-## ⚡Problèmes rencontrés et solutions trouvés
+## ⚡Problèmes et solutions trouvés
 | Problème  | Solution  | Notes |
 | :------------ |:---------------:| -----:|
-| @Hotwired/stimulus Not Found |Supprimer `bootstrap.js` et le dossier `controllers` aussi. Supprimer aussi les dépendances qui correspondent dans le fichier `importmap.php`. Ensuite taper la commande : `composer remove symfony/stimulus-bundle symfony/ux-turbo` pour bien retirer les dépendances. |Je n'ai pas encore rencontré ce problème sur le moment mais il apparaît toujours plus tard dans mes applications. Je ne veux pas qu'il intérrompe mon rythme de travail donc je préfère m'en débarasser avant qu'il n'arrive.|
-| Messengers_message    |   Supprimer le fichier dans le `package/messenger.yaml` puis faire ma migration afin qu'elle soit prise en compte.     |    Comme recommendé je l'ai supprimé directement pour éviter tout conflit futur.       |
-|       |        |           |
+| **@Hotwired/stimulus Not Found** |Supprimer `bootstrap.js` et le dossier `controllers` aussi. Supprimer aussi les dépendances qui correspondent dans le fichier `importmap.php`. Ensuite taper la commande : `composer remove symfony/stimulus-bundle symfony/ux-turbo` pour bien retirer les dépendances. |Je n'ai pas encore rencontré ce problème sur le moment mais il apparaît toujours plus tard dans mes applications. Je ne veux pas qu'il intérrompe mon rythme de travail donc je préfère m'en débarasser avant qu'il n'arrive.|
+| **Messengers_message**    |   Supprimer le fichier dans le `package/messenger.yaml` puis faire ma migration afin qu'elle soit prise en compte.     |    Comme recommendé je l'ai supprimé directement pour éviter tout conflit futur.       |
+|   **Non-concordance entre les noms déclarés dans les fichiers**   |  Redémarrer le serveur      | J'ai recherhcé dans toutes l'application où est ce que j'avais fait une erreur et je n'ai rien trouvé. Après une nuit de sommeil tout marche parfaitement. Il fallait juste que le serveur se rafraichisse. Mais je reste sur mes gardes au cas où le problème reviendrait.     |
 ## Fin

@@ -14,8 +14,7 @@ class CharacterCrudController extends AbstractCrudController
     {
         return Character::class;
     }
-
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -24,5 +23,5 @@ class CharacterCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];
     }
-    */
+
 }

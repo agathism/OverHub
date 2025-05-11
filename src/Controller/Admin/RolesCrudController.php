@@ -15,7 +15,6 @@ class RolesCrudController extends AbstractCrudController
         return Roles::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -24,5 +23,4 @@ class RolesCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];
     }
-    */
 }
