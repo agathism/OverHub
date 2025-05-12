@@ -27,7 +27,6 @@ class CharacterCrudController extends AbstractCrudController
             TextField::new('nationality'),
             TextField::new('occupation'),
             DateField::new('release_date'),
-
         ];
     }
 

@@ -8,8 +8,8 @@ module.exports = {
     extend: {
       colors: {
         // Couleurs principales
-        'ow-maroon': '#D17D98',
-        'ow-violet': '#FFE7E7',
+        'ow-maroon': '#8F87F1',
+        'ow-violet': '#48E0E4',
         'ow-pink': '#F4CCE9',
         'ow-dark-blue': '#AFDDFF',
         // Couleurs neutres
