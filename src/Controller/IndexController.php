@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Mail\NewsletterSubscribedConfirmation;
+use App\Repository\CharacterRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -23,9 +24,13 @@ final class IndexController extends AbstractController
     }
 
     #[Route('/heroes', name: 'app_heroes')]
-    public function index(): Response
+    public function list(CharacterRepository $characterRepository): Response
     {
-        return $this->render('index/heroes.html.twig');
+        $characters = $characterRepository->findAll();
+
+        return $this->render('index/heroes.html.twig', [
+            'characters' => $characters
+        ]);
     }
 
     #[Route('/contact', name: 'app_contact')]
@@ -33,7 +38,6 @@ final class IndexController extends AbstractController
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
-
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){

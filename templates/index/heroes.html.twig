@@ -21,15 +21,15 @@
 
       <!-- Heros -->
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {# {% for character in characters %} #}
+        {% for character in characters %}
           <div class="relative w-[200px] h-[250px] rounded-[14px] z-[1111] overflow-hidden flex flex-col items-center justify-center shadow-[20px_20px_60px_#bebebe,_-20px_-20px_60px_#ffffff]">
             <div class="absolute top-[5px] left-[5px] w-[190px] h-[240px] z-[2] rounded-[10px] overflow-hidden outline outline-[2px] outline-white backdrop-blur-[24px] bg-white/95">
               <img src="{{ asset('images/heroes/icon-tracer.webp') }}" alt="Tracer" class="w-full h-full object-cover" />
             </div>
             <div class="absolute z-[1] top-1/2 left-1/2 w-[150px] h-[150px] rounded-full bg-ow-violet opacity-100 blur-[12px] animate-blob-bounce"></div>
-            <h3 class="text-ow-violet font-bold">Tracer</h3>
-            <span class="text-sm text-gray-600">DPS</span>
+            <h3 class="text-ow-violet font-bold">{{character.name}}</h3>
+            <span class="text-sm text-gray-600"></span>
           </div>
-        {# {% endfor %} #}
+        {% endfor %}
         </main>
 {% endblock %}
