@@ -19,7 +19,7 @@ class Character
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $age = null;
+    private ?int $age = null;
 
     #[ORM\Column(length: 255)]
     private ?string $nationality = null;
@@ -33,11 +33,14 @@ class Character
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $image = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $image = null;
 
     #[ORM\ManyToOne]
     private ?Role $role = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $affiliation = null;
 
     public function getId(): ?int
     {
@@ -61,7 +64,7 @@ class Character
         return $this->age;
     }
 
-    public function setAge(string $age): static
+    public function setAge(int $age): static
     {
         $this->age = $age;
 
@@ -116,21 +119,36 @@ class Character
         return $this;
     }
 
-    public function getRole(): ?Role
+    public function setRole($role): self
+    {
+        $this->role = $role;
+        return $this;
+    }
+
+    public function getRole()
     {
         return $this->role;
     }
-    public function setRole(): ?Role
+
+    // public function getImage(): ?string
+    // {
+    //     return $this->image;
+    // }
+    // public function setImage(string $image): static
+    // {
+    //     $this->image = $image;
+
+    //     return $this;
+    // }
+
+    public function getAffiliation(): ?string
     {
-        return $this->role;
+        return $this->affiliation;
     }
-    public function getImage(): ?string
+
+    public function setAffiliation(string $affiliation): static
     {
-        return $this->image;
-    }
-    public function setImage(string $image): static
-    {
-        $this->image = $image;
+        $this->affiliation = $affiliation;
 
         return $this;
     }

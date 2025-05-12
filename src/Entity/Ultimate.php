@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\AbilityRepository;
+use App\Repository\UltimateRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AbilityRepository::class)]
-class Ability
+#[ORM\Entity(repositoryClass: UltimateRepository::class)]
+class Ultimate
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,10 +17,10 @@ class Ability
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $icon = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $description = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Character $characterName = null;
 
     public function getId(): ?int
     {
@@ -39,18 +39,6 @@ class Ability
         return $this;
     }
 
-    public function getIcon(): ?string
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(string $icon): static
-    {
-        $this->icon = $icon;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -59,6 +47,18 @@ class Ability
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getCharacterName(): ?Character
+    {
+        return $this->characterName;
+    }
+
+    public function setCharacterName(?Character $characterName): static
+    {
+        $this->characterName = $characterName;
 
         return $this;
     }

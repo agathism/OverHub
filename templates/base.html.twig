@@ -11,8 +11,8 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body>
-    <header class="bg-ow-blue text-ow-white">{{ include('nav.html.twig') }}</header>
+    <body class="m-0">
+    <header class="bg-ow-maroon text-ow-white">{{ include('nav.html.twig') }}</header>
     {% for message in app.flashes('success') %}
       <div class="bg-zinc-300 text-black px-6 py-4">{{ message }}</div>
     {% endfor %}

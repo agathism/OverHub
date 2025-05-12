@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 
 class CharacterCrudController extends AbstractCrudController
 {
@@ -19,8 +20,14 @@ class CharacterCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id'),
-            TextField::new('title'),
+            TextField::new('name'),
+            TextField::new('role'),
+            TextField::new('age'),
             TextEditorField::new('description'),
+            TextField::new('nationality'),
+            TextField::new('occupation'),
+            DateField::new('release_date'),
+
         ];
     }
 

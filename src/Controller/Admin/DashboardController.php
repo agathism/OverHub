@@ -2,12 +2,16 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Character;
+use App\Entity\Lore;
+use App\Entity\Ultimate;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Role;
 
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
@@ -47,6 +51,9 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::linkToCrud('Character', 'fas fa-list', Character::class);
+        yield MenuItem::linkToCrud('Role', 'fas fa-list', Role::class);
+        yield MenuItem::linkToCrud('Ultimate', 'fas fa-list', Ultimate::class);
+        yield MenuItem::linkToCrud('Lore', 'fas fa-list', Lore::class);
     }
 }

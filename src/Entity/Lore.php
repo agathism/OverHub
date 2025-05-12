@@ -18,7 +18,7 @@ class Lore
     private ?string $content = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?character $name = null;
+    private ?Character $name = null;
 
     public function getId(): ?int
     {
@@ -37,12 +37,12 @@ class Lore
         return $this;
     }
 
-    public function getName(): ?character
+    public function getName(): ?Character
     {
         return $this->name;
     }
 
-    public function setName(?character $name): static
+    public function setName(?Character $name): static
     {
         $this->name = $name;
 
