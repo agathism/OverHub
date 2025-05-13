@@ -18,8 +18,7 @@ class AppFixtures extends Fixture
         'D.Va' => [
             'name' => 'Self Destruct',
             'description' => 'D.Va ejects from her mech and sets its reactor to explode, dealing massive damage to nearby opponents.',
-            'ultLine' => 'Nerf This',
-            'imagePath' => ''
+            'ultLine' => 'Nerf This'
         ],
         'Doomfist' => [
             'name' => 'Meteor Strike',
@@ -679,11 +678,9 @@ class AppFixtures extends Fixture
 
         // --- CATEGORIES ---
         $roles = [];
-        foreach (self::ROLE_NAMES as $roleName => $data) {
+        foreach (self::ROLE_NAMES as $roleName) {
             $role = new Role();
-            $role
-                ->setName($data['name'])
-                ->setImagePath($data['imagePath']);
+            $role->setName($roleName);
             $manager->persist($role);
             $roles[] = $role;
         }
@@ -695,8 +692,7 @@ class AppFixtures extends Fixture
             $ultimate 
                 ->setName($data['name'])
                 ->setDescription($data['description'])
-                ->setUltLine($data['ultLine'])
-                ->setImagePath($data['imagePath']);
+                ->setUltLine($data['ultLine']);
             $manager->persist($ultimate);
             $ultimates[] = $ultimate;
         }

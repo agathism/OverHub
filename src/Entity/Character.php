@@ -33,9 +33,6 @@ class Character
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $image = null;
-
     #[ORM\ManyToOne]
     private ?Role $role = null;
 
