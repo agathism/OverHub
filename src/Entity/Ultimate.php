@@ -22,6 +22,12 @@ class Ultimate
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Character $characterName = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $ultLine = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $imagePath = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +65,30 @@ class Ultimate
     public function setCharacterName(?Character $characterName): static
     {
         $this->characterName = $characterName;
+
+        return $this;
+    }
+
+    public function getUltLine(): ?string
+    {
+        return $this->ultLine;
+    }
+
+    public function setUltLine(string $ultLine): static
+    {
+        $this->ultLine = $ultLine;
+
+        return $this;
+    }
+
+    public function getImagePath(): ?string
+    {
+        return $this->imagePath;
+    }
+
+    public function setImagePath(string $imagePath): static
+    {
+        $this->imagePath = $imagePath;
 
         return $this;
     }
