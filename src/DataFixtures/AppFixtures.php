@@ -15,25 +15,24 @@ class AppFixtures extends Fixture
 {
     private const ROLE_NAMES = [
         'Tank' => [
-            'id' => 1,
             'name' => 'Tank',
             'imagePath' => 'images/roles/icon-tank.webp',
             'description' => 'Tank heroes soak up damage, create space for your team, and break apart fortified positions, like closely-grouped enemies and narrow choke-points. If you\'re a tank, you lead the charge.',
             'totalHeroes' => 'There are currently 13 Tank heroes in the game.'
         ], 
         'Damage' => [
-            'id' => 2,
             'name' => 'Damage',
             'imagePath' => 'images/roles/icon-damage.webp',
             'description' => 'Damage heroes are responsible for seeking out, engaging, and defeating the enemy using their varied tools and abilities. Playing a damage hero means it is your duty to secure kills.',
             'totalHeroes' => 'There are currently 19 Damage heroes in the game.'
         ], 
         'Support' => [
-            'id' => 3,
             'name' => 'Support',
             'imagePath' => 'images/roles/icon-support.webp',
-            'description' => 'Support heroes empower their allies by healing them, boosting their damage, and providing vital utility. As support, you\'re the backbone of your team\'s survival.'
-        ]];
+            'description' => 'Support heroes empower their allies by healing them, boosting their damage, and providing vital utility. As support, you\'re the backbone of your team\'s survival.',
+            'totalHeroes' => 'There are currently 11 support heroes in the game.'
+        ]
+    ];
     private const ULTIMATES_INFOS = [
         'D.Va' => [
             'name' => 'Self Destruct',
@@ -475,9 +474,19 @@ class AppFixtures extends Fixture
             'affiliation' => 'Overwatch Search and Rescue (formerly)',
             'imagePath' => '/images/heroes/icon-freja.webp'
         ],
+        'Genji' => [
+            'name' => 'Genji',
+            'age' => 37,
+            'nationality' => 'Japanese',
+            'occupation' => 'Adventurer, Samurai',
+            'releaseDate' => '2016-05-24',
+            'description' => 'He\'s is a cyborg ninja and seeks balance between his human soul and mechanical form.',
+            'affiliation' => 'Overwatch (left, later rejoined)',
+            'imagePath' => '/images/heroes/icon-genji.webp'
+        ],
         'Hanzo' => [
             'name' => 'Hanzo',
-            'age' => 40,
+            'age' => 38,
             'nationality' => 'Japanese',
             'occupation' => 'Assassin Mercenary (temporary)',
             'releaseDate' => '2016-05-24',
@@ -591,7 +600,7 @@ class AppFixtures extends Fixture
             'nationality' => 'Canadian / Mexican',
             'occupation' => 'Adventurer',
             'releaseDate' => '2024-04-16',
-            'description' => '',
+            'description' => 'Venture is an elusive, combo-oriented close-range damage dealer.',
             'affiliation' => 'Wayfinder Society',
             'imagePath' => '/images/heroes/icon-venture.webp'
         ],
@@ -791,7 +800,7 @@ class AppFixtures extends Fixture
         ],
         'Freja'=> [
             'title' => "Freja's overview",
-            'content' => ""
+            'content' => "Freja's kit is built for players who thrive on accuracy, agility, and pure tactical domination. She is well suited for players who thrive on precision and positioning. Her kit combines high mobility with precision ranged attacks."
         ],
         'Hanzo'=> [
             'title' => " Hanzo's overview",
@@ -915,7 +924,7 @@ class AppFixtures extends Fixture
 
         // --- ROLES ---
         $roles = [];
-        foreach (self::ROLE_NAMES as $key  => $data) {
+        foreach (self::ROLE_NAMES as $rolesInfos  => $data) {
             $role = new Role();
             $role
                 ->setName($data['name'])
@@ -958,7 +967,7 @@ class AppFixtures extends Fixture
 
         // --- STRATEGIES ---
         $strategies = [];
-        foreach (self::STRATEGY_INFOS as $strategyInfos => $data) {
+        foreach (self::STRATEGY_INFOS as $strategiesInfos => $data) {
             $strategy = new Strategy();
             $strategy
                 ->setTitle($data['title'])

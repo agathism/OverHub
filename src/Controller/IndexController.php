@@ -6,11 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
+use App\Mail\NewsletterSubscribedConfirmation;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Mime\Email;
-
 
 final class IndexController extends AbstractController
 {
@@ -22,7 +22,7 @@ final class IndexController extends AbstractController
 
 
     #[Route('/contact', name: 'app_contact')]
-    public function contact(Request $request, EntityManagerInterface $em): Response
+    public function contact(Request $request, EntityManagerInterface $em, NewsletterSubscribedConfirmation $confirmationService ): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -36,14 +36,11 @@ final class IndexController extends AbstractController
             //envoyer un email de confirmation
             // Construire le message
             $email = (new Email())
-            ->from('admin@overhub.fr')
+            ->from('admin@overhub.com')
             ->to($contact->getEmail())
             ->subject('Welcome!')
             ->text('Your email ' . $contact->getEmail() . ' has been successfully registered for the newsletter.')
             ->html('<p>Your Email' . $contact->getEmail() . ' has been successfully registered for the newsletter.</p>');
-
-            // // Envoyer le message
-            // $mailer->send($email);
 
             // Ajouter un message flash
             $this->addFlash('success', 'You have successfully sent your mail.');

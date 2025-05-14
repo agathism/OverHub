@@ -130,17 +130,6 @@ class Character
         return $this->role;
     }
 
-    // public function getImage(): ?string
-    // {
-    //     return $this->image;
-    // }
-    // public function setImage(string $image): static
-    // {
-    //     $this->image = $image;
-
-    //     return $this;
-    // }
-
     public function getAffiliation(): ?string
     {
         return $this->affiliation;

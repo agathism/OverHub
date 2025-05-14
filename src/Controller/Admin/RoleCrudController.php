@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
 class RoleCrudController extends AbstractCrudController
 {
@@ -15,14 +16,14 @@ class RoleCrudController extends AbstractCrudController
         return Role::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id'),
-            TextField::new('title'),
+            TextField::new('name'),
             TextEditorField::new('description'),
+            TextField::new('totalHeroes'),
+            ImageField::new('imagePath')
         ];
     }
-    */
 }
