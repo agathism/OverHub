@@ -20,6 +20,9 @@ class Strategy
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Character $name = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $title = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +48,18 @@ class Strategy
     public function setName(?Character $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): static
+    {
+        $this->title = $title;
 
         return $this;
     }

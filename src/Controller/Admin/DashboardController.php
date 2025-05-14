@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Character;
-use App\Entity\Lore;
+use App\Entity\Strategy;
 use App\Entity\Ultimate;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -54,6 +54,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Character', 'fas fa-list', Character::class);
         yield MenuItem::linkToCrud('Role', 'fas fa-list', Role::class);
         yield MenuItem::linkToCrud('Ultimate', 'fas fa-list', Ultimate::class);
-        yield MenuItem::linkToCrud('Lore', 'fas fa-list', Lore::class);
+        yield MenuItem::linkToCrud('Strategy', 'fas fa-list', Strategy::class);
     }
 }

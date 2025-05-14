@@ -38,12 +38,12 @@ final class HeroesController extends AbstractController
 
         $strategy = $StrategyRepository->find($id);
         if (!$strategy) {
-            throw $this->createNotFoundException('The ultimate does not exist');
+            throw $this->createNotFoundException('The strategy does not exist');
         }
 
         $role = $RoleRepository->find($id);
         if (!$role) {
-            throw $this->createNotFoundException('The ultimate does not exist');
+            throw $this->createNotFoundException('The role does not exist');
         }
         return $this->render('heroes/hero.html.twig', ['character' => $character, 'ultimate' => $ultimate, 'strategy' => $strategy, 'role' => $role]);
     }

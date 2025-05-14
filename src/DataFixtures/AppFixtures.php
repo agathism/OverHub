@@ -3,28 +3,36 @@
 namespace App\DataFixtures;
 
 use App\Entity\Role;
+use App\Entity\Strategy;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use App\Entity\User;
 use App\Entity\Ultimate;
 use App\Entity\Character;
-use App\Entity\Lore;
 
 class AppFixtures extends Fixture
 {
     private const ROLE_NAMES = [
         'Tank' => [
+            'id' => 1,
             'name' => 'Tank',
             'imagePath' => 'images/roles/icon-tank.webp',
+            'description' => 'Tank heroes soak up damage, create space for your team, and break apart fortified positions, like closely-grouped enemies and narrow choke-points. If you\'re a tank, you lead the charge.',
+            'totalHeroes' => 'There are currently 13 Tank heroes in the game.'
         ], 
         'Damage' => [
+            'id' => 2,
             'name' => 'Damage',
             'imagePath' => 'images/roles/icon-damage.webp',
+            'description' => 'Damage heroes are responsible for seeking out, engaging, and defeating the enemy using their varied tools and abilities. Playing a damage hero means it is your duty to secure kills.',
+            'totalHeroes' => 'There are currently 19 Damage heroes in the game.'
         ], 
         'Support' => [
+            'id' => 3,
             'name' => 'Support',
             'imagePath' => 'images/roles/icon-support.webp',
+            'description' => 'Support heroes empower their allies by healing them, boosting their damage, and providing vital utility. As support, you\'re the backbone of your team\'s survival.'
         ]];
     private const ULTIMATES_INFOS = [
         'D.Va' => [
@@ -390,7 +398,7 @@ class AppFixtures extends Fixture
         'Winston' => [
             'name' => 'Winston',
             'age' => 31,
-            'nationality' => '',
+            'nationality' => 'From the Moon',
             'occupation' => 'Scientist and Adventurer',
             'releaseDate' => '2016-05-24',
             'description' => 'A genetically engineered gorilla who uses a Tesla Cannon and can leap into battle.',
@@ -400,7 +408,7 @@ class AppFixtures extends Fixture
         'Wrecking Ball' => [
             'name' => 'Wrecking Ball',
             'age' => 16,
-            'nationality' => '',
+            'nationality' => 'From the Moon',
             'occupation' => 'Mechanic bodyguard',
             'releaseDate' => '2018-07-24',
             'description' => 'A genetically engineered hamster who pilots a mech and can roll into enemies.',
@@ -708,7 +716,181 @@ class AppFixtures extends Fixture
             'imagePath' => '/images/heroes/icon-zenyatta.webp'
         ]
     ];
-
+    private const STRATEGY_INFOS = [
+        'D.va'=> [
+            'title' => "D.Va's overview",
+            'content' => "D.Va's mech is nimble and powerful — its twin Fusion Cannons blast away with autofire at short range, and she can use its Boosters to barrel over enemies and obstacles, or absorb attacks with her projectile-destroying Defense Matrix."
+        ],
+        'Doomfist'=> [
+            'title' => "Doomfist's overview",
+            'content' => "Doomfist's cybernetics make him a highly-mobile, powerful frontline fighter. In addition to dealing ranged damage with his Hand Cannon, Doomfist can slam the ground, knock enemies into the air and off balance, or charge into the fray with his Rocket Punch. When facing a tightly packed group, Doomfist leaps out of view, then crashes down to earth with a spectacular Meteor Strike."
+        ],
+        'Hazard'=> [
+            'title' => "Hazard's overview",
+            'content' => "Hazard's cybernetics allow him to be a highly mobile tank focused on diving in and diving out. His cybernetics have a shotgun inbuilt into them, also powering his jump to be quite high. The Vanadium injection grants him the ability of a shield with being able to fire homing spikes onto nearby attackers. He can build Vanadium crystalline walls that also knock back and deal damage."
+        ],
+        'Junker Queen'=> [
+            'title' => "Junker Queen's overview",
+            'content' => "The Junker Queen is designed to take part in close combat with enemy heroes. Many of her abilities apply wounds that cause enemies to slowly lose health. She also has a life-steal passive that adds to her survivability and aggression. Pushing the boundaries of brawling, Junker Queen can be considered a berserker tank, whose survivability is directly connected to how many enemies she's wounding."
+        ],
+        'Mauga'=> [
+            'title' => "Mauga's overview",
+            'content' => "Mauga features a kit that is designed to bash through the front lines and brawl his opponents in close-quarter combat, by wielding two powerful chainguns that can either be fired individually or in unison. Ignite enemies with his incendiary chaingun “Gunny” to burn them when they take enough damage, then finish them with a critical hit from his volatile chaingun “Cha-Cha.” Paired with his Berserker passive, which grants Mauga temporary health whenever he deals critical damage, he's a mountain on the battlefield"
+        ],
+        'Orisa'=> [
+            'title' => "Orisa's overview",
+            'content' => "In Overwatch, Orisa served as the central anchor of her team, and defended her teammates from the frontline with a protective barrier. She could attack from long range, fortify her own defenses, launch graviton charges to slow and move enemies, and deploy a Supercharger to boost the damage output of multiple allies at once."
+        ],
+        'Ramattra'=> [
+            'title' => "Ramattra's overview",
+            'content' => "Ramattra is a dual-form hero. His Omnic form lets him deal long range poke damage using a staff as his weapon and deploy a stationary barrier to block fire from the enemy team. His Nemesis form transforms him into a larger and more menacing close-range threat, allowing him to dish out damage with piercing punches while also granting him bonus armor and a block ability to withstand incoming damage. In either form, he can also deploy a slowing field that pulls down enemies in the air. During his ultimate ability, Ramattra unleashes his wrath, dealing continuous damage to all enemies in a large area around him and transforming into Nemesis form until no enemies remain."
+        ],
+        'Reinhardt'=> [
+            'title' => "Reinhardt's overview",
+            'content' => "Clad in powered armor and swinging his hammer, Reinhardt leads a rocket-propelled charge across the battleground and defends his squadmates with a massive energy barrier."
+        ],
+        'Roadhog'=> [
+            'title' => "Roadhog's overview",
+            'content' => "Roadhog uses his signature Chain Hook to pull his enemies close before shredding them with blasts from his Scrap Gun. He's hardy enough to withstand tremendous damage, and can recover his health with a short breather."
+        ],
+        'Sigma'=> [
+            'title' => "Sigma's overview",
+            'content' => "Sigma is an eccentric astrophysicist and volatile tank who gained the power to control gravity in an orbital experiment gone wrong. Manipulated by Talon and deployed as a living weapon, Sigma's presence on the battlefield cannot be ignored."
+        ],
+        'Winston'=> [
+            'title' => "Winston's overview",
+            'content' => "Winston wields impressive inventions—a jump pack, electricity-blasting Tesla Cannon, portable shield projector and more—with literal gorilla strength."
+        ],
+        'Wrecking Ball'=> [
+            'title' => "Wrecking Ball's overview",
+            'content' => "Wrecking Ball rolls across the battlefield, using his arsenal of weapons and his mech's powerful body to crush his enemies."
+        ],
+        'Zarya'=> [
+            'title' => "Zarya's overview",
+            'content' => "Deploying powerful personal barriers that convert incoming damage into energy for her massive Particle Cannon, Zarya is an invaluable asset on the front lines of any battle."
+        ],
+        'Ashe'=> [
+            'title' => " Ashe's overview",
+            'content' => " Ashe can quickly fire her rifle from the hip or use her weapon's aim-down sights to line up a high damage shot at the cost of fire-rate. She blasts enemies by throwing dynamite, and her coach gun packs enough punch to put some distance between her and her foes, or gain some air to leap to hard to reach places or for an aerial shot. And Ashe is not alone, as she can call on her omnic ally B.O.B. to join the fray when the need arises."
+        ],
+        'Bastion'=> [
+            'title' => " Bastion's overview",
+            'content' => "The ability to transform between Assault, Recon and devastating Artillery configurations provided Bastion with a high damage output."
+        ],
+        'Cassidy'=> [
+            'title' => " Cassidy's overview",
+            'content' => "Armed with his Peacekeeper revolver, Cassidy takes out targets with Deadeye precision and dives out of danger with eagle-like speed."
+        ],
+        'Echo'=> [
+            'title' => " Echo's overview",
+            'content' => "Echo is an evolutionary robot programmed with a rapidly adapting artificial intelligence, versatile enough to fill multiple battlefield combat roles."
+        ],
+        'Genji'=> [
+            'title' => " Genji's overview",
+            'content' => "Genji flings precise and deadly Shuriken at his targets, and uses his wakizashi to deflect projectiles or delivers a Swift Strike with his technologically-advanced Dragonblade that cuts down enemies."
+        ],
+        'Freja'=> [
+            'title' => "Freja's overview",
+            'content' => ""
+        ],
+        'Hanzo'=> [
+            'title' => " Hanzo's overview",
+            'content' => "Hanzo's versatile arrows can reveal his enemies or rapid fire to strike multiple targets. He can scale walls to fire his bow from on high, or summon a titanic spirit dragon."
+        ],
+        'Junkrat'=> [
+            'title' => " Junkrat's overview",
+            'content' => "Junkrat's area-denying armaments include a Frag Launcher that lobs bouncing grenades, Concussion Mines that send enemies flying, and Steel Traps that stop foes dead in their tracks."
+        ],
+        'Mei'=> [
+            'title' => " Mei's overview",
+            'content' => "Mei's weather-altering devices slow opponents and protect locations. Her Endothermic Blaster unleashes damaging icicles and frost streams, and she can Cryo-Freeze herself to guard against counterattacks, or obstruct the opposing team's movements with an Ice Wall."
+        ],
+        'Pharah'=> [
+            'title' => "Pharah's overview",
+            'content' => "Soaring through the air in her combat armor, and armed with a launcher that lays down high-explosive rockets, Pharah is a force to be reckoned with."
+        ],
+        'Reaper'=> [
+            'title' => "Reaper's overview",
+            'content' => "Hellfire Shotguns, the ghostly ability to become immune to damage, and the power to step between shadows make Reaper one of the deadliest beings on Earth."
+        ],
+        'Sojourn'=> [
+            'title' => "Sojourn's overview",
+            'content' => "As a former Overwatch Captain, Sojourn fields abilities designed to plan, lead, and execute strikes on her opposition. Sojourn offers a unique mid-range gameplay experience and a kit packed with some incredible mobility and artillery."
+        ],
+        'Soldier: 76'=> [
+            'title' => " Soldier: 76's overview",
+            'content' => "Armed with cutting-edge weaponry, including an experimental pulse rifle that's capable of firing spirals of high-powered Helix Rockets, Soldier: 76 has the speed and support know-how of a highly trained warrior."
+        ],
+        'Sombra'=> [
+            'title' => " Sombra's overview",
+            'content' => "Stealth and debilitating attacks make Sombra a powerful infiltrator. She is the archetypal technomancer of Overwatch the same way Widowmaker is the archetypal sniper. Her hacking can disrupt her enemies, ensuring they're easier to take out, while her EMP provides the upper hand against multiple foes at once. Sombra’s ability to Translocate and camouflage herself makes her a hard target to pin down."
+        ],
+        'Symmetra'=> [
+            'title' => " Symmetra's overview",
+            'content' => "Symmetra utilizes her light-bending Photon Projector to dispatch adversaries, shield her associates, construct teleportation pads and deploy particle-blasting Sentry Turrets."
+        ],
+        'Torbjörn'=> [
+            'title' => " Torbjörn's overview",
+            'content' => "Torbjörn's extensive arsenal includes a rivet gun and hammer, as well as a personal forge that he can use to build turrets."
+        ],
+        'Tracer'=> [
+            'title' => " Tracer's overview",
+            'content' => "Toting twin pulse pistols, energy-based time bombs, and rapid-fire banter, Tracer is able to Blink through space and rewind her personal timeline as she battles to right wrongs the world over."
+        ],
+        'Venture'=> [
+            'title' => " Venture's overview",
+            'content' => "Venture is an elusive, combo-oriented close-range damage dealer."
+        ],
+        'Widowmaker'=> [
+            'title' => " Widowmaker's overview",
+            'content' => "Widowmaker equips herself with whatever it takes to eliminate her targets, including mines that dispense poisonous gas, a visor that grants her squad infra-sight, and a powerful sniper rifle that can fire in fully-automatic mode."
+        ],
+        'Ana'=> [
+            'title' => " Ana's overview",
+            'content' => "Ana's versatile arsenal allows her to affect heroes all over the battlefield. Her Biotic Rifle rounds and Biotic Grenades heal allies and damage or impair enemies; her sidearm tranquilizes key targets, and Nano Boost gives one of her comrades a considerable increase in power."
+        ],
+        'Baptiste'=> [
+            'title' => " Baptiste's overview",
+            'content' => "Baptiste wields an assortment of experimental devices and weaponry to keep allies alive and eliminate threats under fierce conditions. A battle-hardened combat medic, he is just as capable of saving lives as he is taking out the enemy."
+        ],
+        'Brigitte'=> [
+            'title' => " Brigitte's overview",
+            'content' => "Brigitte specializes in protection. She can throw Repair Packs to heal teammates, as well as automatically heal nearby allies when she damages foes. Her Rocket Flail can strike multiple close-range targets when swung normally, or a single medium-range target via the Whip Shot. When entering the fray, her Barrier Shield provides personal defense and can also be used offensively with Shield Bash. Brigitte’s ultimate ability, Rally, gives her a small short-term speed boost and provides longer-lasting Overhealth to her nearby allies, as well as a personal boost of armor for herelf"
+        ],
+        'Illari'=> [
+            'title' => " Illari's overview",
+            'content' => "Illari harnesses the power of the sun in her Solar Rifle, capable of dealing long range poke damage and creating a high-output healing beam. She can also deploy a healing pylon to automatically heal nearby allies. Her ultimate ability fires an explosive ball of solar energy that slows enemies in a massive area and causes them to burst upon taking more damage."
+        ],
+        'Juno'=> [
+            'title' => " Juno's overview",
+            'content' => "Juno is a highly mobile hero with a focus on verticality."
+        ],
+        'Kiriko'=> [
+            'title' => " Kiriko's overview",
+            'content' => "Kiriko is a kunoichi healer who is aided by her kitsune spirit. She can throw protection suzu to her allies or kunai against her enemies.
+                          She is a family friend of the Shimada Family. She also trained in the early days with Genji and Hanzo."
+        ],
+        'Lifeweaver'=> [
+            'title' => " Lifeweaver's overview",
+            'content' => "Lifeweaver is a support that provides reliable healing and utility that allows him to reposition his teammates and save them from dangerous situations."
+        ],
+        'Lúcio'=> [
+            'title' => " Lúcio's overview",
+            'content' => "On the battlefield, Lúcio\'s cutting-edge Sonic Amplifier buffets enemies with projectiles and knocks foes back with blasts of sound. His songs can both heal his team or boost their movement speed, and he can switch between tracks on the fly."
+        ],
+        'Mercy'=> [
+            'title' => " Mercy's overview",
+            'content' => "Mercy's Valkyrie Suit helps keep her close to teammates like a guardian angel; healing, resurrecting or strengthening them with the beams emanating from her Caduceus Staff."
+        ],
+        'Moira'=> [
+            'title' => " Moira's overview",
+            'content' => "Moira's biotic abilities enable her to contribute healing or damage in any crisis. While Biotic Grasp gives Moira short-range options, her Biotic Orbs contribute longer-range, hands-off damage and healing; she can also Fade to escape groups or remain close to allies in need of support. Once she's charged Coalescence, Moira can save allies from elimination, with healing, while also damaging several enemies at the same time."
+        ],
+        'Zenyatta'=> [
+            'title' => " Zenyatta's overview",
+            'content' => "Zenyatta calls upon orbs of harmony and discord to heal his teammates and weaken his opponents, all while pursuing a transcendent state of immunity to damage."
+        ],
+    ];
     private UserPasswordHasherInterface $hasher;
     public function __construct(UserPasswordHasherInterface $hasher)
     {
@@ -731,20 +913,22 @@ class AppFixtures extends Fixture
 
         $manager->persist($adminUser);
 
-        // --- CATEGORIES ---
+        // --- ROLES ---
         $roles = [];
-        foreach (self::ROLE_NAMES as $roleName  => $data) {
+        foreach (self::ROLE_NAMES as $key  => $data) {
             $role = new Role();
             $role
                 ->setName($data['name'])
-                ->setImagePath($data['imagePath']);
+                ->setImagePath($data['imagePath'])
+                ->setDescription($data['description'])
+                ->setTotalHeroes($data['totalHeroes']);
             $manager->persist($role);
             $roles[] = $role;
         }
 
         // --- ULTIMATES ---
         $ultimates = [];
-        foreach (self::ULTIMATES_INFOS as $ultimatesInfos => $data) {
+        foreach (self::ULTIMATES_INFOS as $ultimateInfos => $data) {
             $ultimate = new Ultimate();
             $ultimate 
                 ->setName($data['name'])
@@ -757,7 +941,7 @@ class AppFixtures extends Fixture
 
         // --- CHARACTERS ---
         $characters = [];
-        foreach (self::CHARACTER_INFOS as $charactersInfos => $data) {
+        foreach (self::CHARACTER_INFOS as $characterInfos => $data) {
             $character = new Character();
             $character
                 ->setName($data['name'])
@@ -770,6 +954,17 @@ class AppFixtures extends Fixture
                 ->setImagePath($data['imagePath']);
             $manager->persist($character);
             $characters[] = $character;
+        }
+
+        // --- STRATEGIES ---
+        $strategies = [];
+        foreach (self::STRATEGY_INFOS as $strategyInfos => $data) {
+            $strategy = new Strategy();
+            $strategy
+                ->setTitle($data['title'])
+                ->setContent($data['content']);
+            $manager->persist($strategy);
+            $strategies[] = $strategy;
         }
         $manager->flush();
     }

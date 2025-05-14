@@ -19,11 +19,17 @@ class Role
     #[ORM\Column(length: 255)]
     private ?string $imagePath = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $description = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $totalHeroes = null;
+
     public function getId(): ?int
     {
         return $this->id;
     }
-
+    
     public function getName(): ?string
     {
         return $this->name;
@@ -44,6 +50,30 @@ class Role
     public function setImagePath(string $imagePath): static
     {
         $this->imagePath = $imagePath;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getTotalHeroes(): ?string
+    {
+        return $this->totalHeroes;
+    }
+
+    public function setTotalHeroes(string $totalHeroes): static
+    {
+        $this->totalHeroes = $totalHeroes;
 
         return $this;
     }
