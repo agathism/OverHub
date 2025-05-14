@@ -1,9 +1,8 @@
-<nav class=" text-white flex justify-around mb-0 sm:flex-row">
-<div class="flex items-center">
-<div>
+<nav class=" text-white flex justify-evenly items-center mb-0 sm:flex-row">
+  <div>
   <a href="{{path('homepage')}}"><img class="w-22 h-20" src="{{ asset('images/overwatch_logo_with_text_large.svg') }}" alt="Overhub Logo"></a>
   </div>
-  <ul class="flex justify-center text-xl">
+  <ul class="flex flex-row text-xl">
     <li class="list-none">
       <a class=" translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('homepage')}}">Home</a>
     </li>
@@ -13,6 +12,8 @@
     <li class="list-none">
       <a class=" translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_contact')}}">Contact</a>
     </li>
+  </ul>
+  <ul class="flex flex-row text-xl">
     {% if is_granted('ROLE_ADMIN') %}
     <li>
       <a class="translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_profile')}}">Profile</a>
@@ -22,8 +23,8 @@
     </li>
     {% else %}
     <li>
-      <a class="translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_login')}}">Login</a>
+      <a class="translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_login')}}">Login/Register</a>
     </li>
     {% endif %}
-    </div>
+  </ul>
 </nav>

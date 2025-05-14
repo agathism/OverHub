@@ -14,10 +14,10 @@ class ProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('username', TextType::class, [
+            ->add('email', TextType::class, [
                 'attr' => [
                     'class' => 'bg-zinc-100 text-black rounded-md px-4 py-2',
-                    'placeholder' => 'Change your username'
+                    'placeholder' => 'Change your mail'
                 ],
                 'label_attr' => ['class' => 'form-label']
             ])
