@@ -2,28 +2,28 @@
   <div>
   <a href="{{path('homepage')}}"><img class="w-22 h-20" src="{{ asset('images/overwatch_logo_with_text_large.svg') }}" alt="Overhub Logo"></a>
   </div>
-  <ul class="flex flex-row text-xl">
+  <ul class="flex flex-row text-xl gap-8">
     <li class="list-none">
-      <a class=" translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('homepage')}}">Home</a>
+      <a class=" translate-all block py-4 list-none hover:text-ow-pink transition-colors" href="{{path('homepage')}}">Home</a>
     </li>
     <li class="list-none">
-      <a class=" translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_heroes')}}">Heroes</a>
+      <a class=" translate-all block py-4 gap-2 list-none hover:text-ow-pink transition-colors" href="{{path('app_heroes')}}">Heroes</a>
     </li>
     <li class="list-none">
-      <a class=" translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_contact')}}">Contact</a>
+      <a class=" translate-all block py-4 gap-2 list-none hover:text-ow-pink transition-colors" href="{{path('app_contact')}}">Contact</a>
     </li>
   </ul>
-  <ul class="flex flex-row text-xl">
+  <ul class="flex flex-row text-xl gap-8">
     {% if is_granted('ROLE_ADMIN') %}
     <li>
-      <a class="translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_profile')}}">Profile</a>
+      <a class="translate-all block py-4 gap-2 list-none hover:text-ow-pink transition-colors" href="{{path('app_profile')}}">Profile</a>
     </li>
     <li>
-      <a class="translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_logout')}}">Disconnect</a>
+      <a class="translate-all block py-4 gap-2 list-none hover:text-ow-pink transition-colors" href="{{path('app_logout')}}">Disconnect</a>
     </li>
     {% else %}
     <li>
-      <a class="translate-all block py-4 px-5 list-none hover:text-ow-pink transition-colors" href="{{path('app_login')}}">Login/Register</a>
+      <a class="translate-all block py-4 gap-2 list-none hover:text-ow-pink transition-colors" href="{{path('app_login')}}">Login/Register</a>
     </li>
     {% endif %}
   </ul>
