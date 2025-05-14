@@ -2,18 +2,18 @@
 
 namespace App\Repository;
 
-use App\Entity\Lore;
+use App\Entity\Strategy;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Lore>
+ * @extends ServiceEntityRepository<Strategy>
  */
-class LoreRepository extends ServiceEntityRepository
+class StrategyRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Lore::class);
+        parent::__construct($registry, StrategyRepository::class);
     }
 
 //    /**

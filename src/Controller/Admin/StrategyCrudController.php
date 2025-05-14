@@ -2,17 +2,17 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Lore;
+use App\Entity\Strategy;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class LoreCrudController extends AbstractCrudController
+class StrategyCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Lore::class;
+        return Strategy::class;
     }
 
     

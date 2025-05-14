@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\LoreRepository;
+use App\Repository\StrategyRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: LoreRepository::class)]
-class Lore
+#[ORM\Entity(repositoryClass: StrategyRepository::class)]
+class Strategy
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

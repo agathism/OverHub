@@ -13,222 +13,277 @@ use App\Entity\Lore;
 
 class AppFixtures extends Fixture
 {
-    private const ROLE_NAMES = ['Tank', 'Damage', 'Support'];
+    private const ROLE_NAMES = [
+        'Tank' => [
+            'name' => 'Tank',
+            'imagePath' => 'images/roles/icon-tank.webp',
+        ], 
+        'Damage' => [
+            'name' => 'Damage',
+            'imagePath' => 'images/roles/icon-damage.webp',
+        ], 
+        'Support' => [
+            'name' => 'Support',
+            'imagePath' => 'images/roles/icon-support.webp',
+        ]];
     private const ULTIMATES_INFOS = [
         'D.Va' => [
             'name' => 'Self Destruct',
             'description' => 'D.Va ejects from her mech and sets its reactor to explode, dealing massive damage to nearby opponents.',
-            'ultLine' => 'Nerf This'
+            'ultLine' => '"Nerf This!"',
+            'imagePath' => 'images/ultimates/icon-dva.webp'
         ],
         'Doomfist' => [
             'name' => 'Meteor Strike',
             'description' => 'Doomfist leaps into the air then crashes down, dealing massive damage to enemies near the impact point.',
-            'ultLine' => 'Meteor Strike!'
+            'ultLine' => '"Meteor Strike!"',
+            'imagePath' => 'images/ultimates/icon-doomfist.webp'
         ],
         'Hazard' => [
             'name' => 'Annihilation Matrix',
             'description' => 'Hazard deploys a matrix that deals increasing damage to enemies caught within while healing allies.',
-            'ultLine' => 'Nowhere to hide!'
+            'ultLine' => '"Tear it down!"',
+            'imagePath' => 'images/ultimates/icon-hazard.webp'
         ],
         'Junker Queen' => [
             'name' => 'Rampage',
             'description' => 'Junker Queen charges forward, dealing damage and preventing affected enemies from being healed.',
-            'ultLine' => 'I\'m going to tear you apart!'
+            'ultLine' => '"Time for the reckoning!"',
+            'imagePath' => 'images/ultimates/icon-junker_queen.webp'
         ],
         'Mauga' => [
             'name' => 'Cage Fight',
-            'description' => 'Mauga traps enemies in an arena and gains bonus lifesteal while dual-wielding chainguns.',
-            'ultLine' => 'Nobody leaves my cage alive!'
+            'description' => 'Deploy a barrier that traps yourself and enemies. Automatically reloads Mauga\'s Chainguns at the start of the ultimate.',
+            'ultLine' => '"Se se\'i koikiiki!"',
+            'imagePath' => 'images/ultimates/icon-mauga.webp'
         ],
         'Orisa' => [
             'name' => 'Terra Surge',
-            'description' => 'Orisa pulls in enemies and charges up an area-of-effect attack that deals damage and applies a slowing effect.',
-            'ultLine' => 'Clearing the area!'
+            'description' => 'Orisa sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Primary Fire to unleash the surge early.',
+            'ultLine' => '"Pade ayanmọ rẹ!"',
+            'imagePath' => 'images/ultimates/icon-orisa.webp'
         ],
         'Ramattra' => [
             'name' => 'Annihilation',
             'description' => 'Ramattra enters Nemesis Form and creates a damaging energy swarm that lingers as long as it deals damage.',
-            'ultLine' => 'Suffer, as I have.'
+            'ultLine' => 'Suffer, as I have.',
+            'imagePath' => 'images/ultimates/icon-ramattra.webp'
         ],
         'Reinhardt' => [
             'name' => 'Earthshatter',
             'description' => 'Reinhardt slams his hammer into the ground, knocking down and damaging all enemies in front of him.',
-            'ultLine' => 'Hammer down!'
+            'ultLine' => '"Hammer down!"',
+            'imagePath' => 'images/ultimates/icon-reinhardt.webp'
         ],
         'Roadhog' => [
             'name' => 'Whole Hog',
             'description' => 'Roadhog uses his scrap gun to unleash a stream of shrapnel that pushes enemies back and deals massive damage.',
-            'ultLine' => 'Here\'s something for ya!'
+            'ultLine' => '(Mad laughter and coughing)',
+            'imagePath' => 'images/ultimates/icon-roadhog.webp'
         ],
         'Sigma' => [
             'name' => 'Gravitic Flux',
             'description' => 'Sigma manipulates gravity to lift enemies into the air and then slams them back down.',
-            'ultLine' => 'What is that melody?'
+            'ultLine' => '"Het universum zingt voor mij!"',
+            'imagePath' => 'images/ultimates/icon-sigma.webp'
         ],
         'Winston' => [
             'name' => 'Primal Rage',
             'description' => 'Winston becomes enraged, gaining significant health and melee knockback power while reducing cooldowns.',
-            'ultLine' => 'Get out of my way!'
+            'ultLine' => '(Roar!)',
+            'imagePath' => 'images/ultimates/icon-winston.webp'
         ],
         'Wrecking Ball' => [
             'name' => 'Minefield',
             'description' => 'Wrecking Ball deploys a massive field of proximity mines that explode on contact with enemies.',
-            'ultLine' => 'Ehhhhh-heh-heh-heh!'
+            'ultLine' => '"Area denied".',
+            'imagePath' => 'images/ultimates/icon-wrecking_ball.webp'
         ],
         'Zarya' => [
             'name' => 'Graviton Surge',
             'description' => 'Zarya launches a gravity bomb that pulls enemies into its center, making them easy targets.',
-            'ultLine' => 'Fire at will!'
+            'ultLine' => '"Ogon\' po gotovnosti!"',
+            'imagePath' => 'images/ultimates/icon-zarya.webp'
         ],
         'Ashe' => [
             'name' => 'B.O.B.',
             'description' => 'Ashe summons her omnic ally B.O.B., who charges forward, knocking enemies into the air and shooting at them with his arm cannons.',
-            'ultLine' => 'B.O.B., do somethin\'!'
+            'ultLine' => '"B.O.B., do something!"',
+            'imagePath' => 'images/ultimates/icon-ashe.webp'
         ],
         'Bastion' => [
-            'name' => 'Artillery',
+            'name' => 'Configuration Artillery',
             'description' => 'Bastion locks into artillery mode and targets up to three locations, dealing massive area damage.',
-            'ultLine' => 'Beep boop!'
+            'ultLine' => 'Ride of the Valkyries Fanfare',
+            'imagePath' => 'images/ultimates/icon-bastion.webp'
         ],
         'Cassidy' => [
             'name' => 'Deadeye',
             'description' => 'Cassidy focuses and lines up shots on all visible enemies. After locking on, he fires, dealing massive damage.',
-            'ultLine' => 'It\'s high noon.'
+            'ultLine' => '"It\'s high noon."',
+            'imagePath' => 'images/ultimates/icon-cassidy.webp'
         ],
         'Echo' => [
             'name' => 'Duplicate',
             'description' => 'Echo duplicates an enemy hero and gains access to all of their abilities for a limited time.',
-            'ultLine' => 'Copying initiated.'
+            'ultLine' => '"Adaptive circuits engaged: [Hero Name]."',
+            'imagePath' => 'images/ultimates/icon-echo.webp'
         ],
         'Freja' => [
             'name' => 'Bola Shote',
             'description' => 'Freja fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies.',
-            'ultLine' => 'Nu vanker der'
+            'ultLine' => 'Nu vanker der',
+            'imagePath' => 'images/ultimates/icon-freja.webp'
         ],
         'Genji' => [
             'name' => 'Dragonblade',
             'description' => 'Genji unsheathes his sword for a brief period and can deliver powerful melee slashes.',
-            'ultLine' => 'Ryūjin no ken wo kurae!'
+            'ultLine' => '"Ryūjin no ken o kurae!"',
+            'imagePath' => 'images/ultimates/icon-genji.webp'
         ],
         'Hanzo' => [
             'name' => 'Dragonstrike',
             'description' => 'Hanzo launches a spirit dragon that travels through walls and deals massive damage to enemies in its path.',
-            'ultLine' => 'Ryū ga waga teki wo kurau!'
+            'ultLine' => '"Ryū ga waga teki wo kurau!"',
+            'imagePath' => 'images/ultimates/icon-hanzo.webp'
         ],
         'Junkrat' => [
             'name' => 'RIP-Tire',
             'description' => 'Junkrat deploys a motorized tire bomb he can control remotely and detonate to deal heavy damage.',
-            'ultLine' => 'Fire in the hole!'
+            'ultLine' => '"Fire in the hole!"',
+            'imagePath' => 'images/ultimates/icon-junkrat.webp'
         ],
         'Mei' => [
             'name' => 'Blizzard',
             'description' => 'Mei deploys Snowball, which creates a blizzard that slows and freezes enemies caught in its radius.',
-            'ultLine' => 'Freeze! Don\'t move!'
+            'ultLine' => '"Dòng zhù! Bùxǔ zǒu!"',
+            'imagePath' => 'images/ultimates/icon-mei.webp'
         ],
         'Pharah' => [
             'name' => 'Barrage',
             'description' => 'Pharah hovers in place and unleashes a continuous salvo of mini-rockets to devastate an area.',
-            'ultLine' => 'Justice rains from above!'
+            'ultLine' => '"Justice rains from above!"',
+            'imagePath' => 'images/ultimates/icon-pharah.webp'
         ],
         'Reaper' => [
             'name' => 'Death Blossom',
             'description' => 'Reaper spins in a circle and fires his shotguns in all directions, dealing massive damage to nearby enemies.',
-            'ultLine' => 'Die, die, die!'
+            'ultLine' => '"Die, die, die!"',
+            'imagePath' => 'images/ultimates/icon-reaper.webp'
         ],
         'Sojourn' => [
             'name' => 'Overclock',
             'description' => 'Sojourn\'s railgun charges automatically and fires high-powered shots that pierce enemies.',
-            'ultLine' => 'Railgun charged.'
+            'ultLine' => '"This ends now!"',
+            'imagePath' => 'images/ultimates/icon-sojourn.webp'
         ],
         'Soldier: 76' => [
             'name' => 'Tactical Visor',
             'description' => 'Soldier: 76 locks onto targets automatically, making all of his shots aim at enemies in his sights.',
-            'ultLine' => 'I\'ve got you in my sights.'
+            'ultLine' => '"I\'ve got you in my sights!"',
+            'imagePath' => 'images/ultimates/icon-soldier_76.webp'
         ],
         'Sombra' => [
             'name' => 'EMP',
             'description' => 'Sombra releases an EMP that hacks all enemies in range and destroys enemy barriers.',
-            'ultLine' => 'Apagando las luces.'
+            'ultLine' => '"Apagando las luces!"',
+            'imagePath' => 'images/ultimates/icon-sombra.webp'
         ],
         'Symmetra' => [
             'name' => 'Photon Barrier',
             'description' => 'Symmetra deploys a massive energy barrier that spans the entire map, blocking enemy projectiles.',
-            'ultLine' => 'Reality bends to my will.'
+            'ultLine' => '"Yahi param vaastavikata hai!"',
+            'imagePath' => 'images/ultimates/icon-symmetra.webp'
         ],
         'Torbjörn' => [
             'name' => 'Molten Core',
             'description' => 'Torbjörn sprays molten slag on the ground that damages enemies standing in it.',
-            'ultLine' => 'Molten core!'
+            'ultLine' => '"Molten core!"',
+            'imagePath' => 'images/ultimates/icon-torbjorn.webp'
         ],
         'Tracer' => [
             'name' => 'Pulse Bomb',
             'description' => 'Tracer throws a sticky explosive that attaches to enemies or surfaces and detonates after a short delay.',
-            'ultLine' => 'Bomb\'s away!'
+            'ultLine' => '"Bomb\'s ticking!"',
+            'imagePath' => 'images/ultimates/icon-tracer.webp'
         ],
         'Venture' => [
             'name' => 'Tectonic Shock',
             'description' => 'Venture slams the ground, creating a powerful shockwave that damages and knocks enemies upward.',
-            'ultLine' => 'Time to shake things up!'
+            'ultLine' => '"Excavation initiation!"',
+            'imagePath' => 'images/ultimates/icon-venture.webp'
         ],
         'Widowmaker' => [
             'name' => 'Infra-Sight',
             'description' => 'Widowmaker activates her visor to reveal the location of all enemies to her team through walls.',
-            'ultLine' => 'No one can hide from my sight.'
+            'ultLine' => '"No one can hide from my sight..."',
+            'imagePath' => 'images/ultimates/icon-widowmaker.webp'
         ],
         'Ana' => [
             'name' => 'Nano Boost',
             'description' => 'Ana boosts an ally, increasing their damage and reducing damage taken.',
-            'ultLine' => 'You\'re powered up, get in there!'
+            'ultLine' => '"You\'re powered up, get in there!"',
+            'imagePath' => 'images/ultimates/icon-ana.webp'
         ],
         'Baptiste' => [
             'name' => 'Amplification Matrix',
             'description' => 'Baptiste creates a matrix that doubles the damage and healing effects of friendly projectiles passing through it.',
-            'ultLine' => 'Amplification Matrix ready!'
+            'ultLine' => '"Vide bal sou yo!"',
+            'imagePath' => 'images/ultimates/icon-baptiste.webp'
         ],
         'Brigitte' => [
             'name' => 'Rally',
             'description' => 'Brigitte gains extra movement speed and provides armor over time to nearby allies.',
-            'ultLine' => 'Rally to me!'
+            'ultLine' => '"Alla till mig!"',
+            'imagePath' => 'images/ultimates/icon-brigitte.webp'
         ],
         'Illari' => [
             'name' => 'Captive Sun',
             'description' => 'Illari launches a solar charge that slows and marks enemies. Marked enemies explode if they take enough damage.',
-            'ultLine' => 'Feel the sun\'s judgment!'
+            'ultLine' => '"Inti Iluqsimun!"',
+            'imagePath' => 'images/ultimates/icon-illari.webp'
         ],
         'Juno' => [
             'name' => 'Mollecular Controller',
             'description' => 'Juno deploys a device that creates a large field which reduces the damage output of enemies caught within it.',
-            'ultLine' => 'Nullification Field Deployed'
+            'ultLine' => '"Locking satellite vector!"',
+            'imagePath' => 'images/ultimates/icon-juno.webp'
         ],
         'Kiriko' => [
             'name' => 'Kitsune Rush',
             'description' => 'Kiriko summons a fox spirit that rushes forward, speeding up movement, attack speed, and cooldowns of allies in its path.',
-            'ultLine' => 'Let the kitsune guide you!'
+            'ultLine' => '"Kitsune no kagidzume o tokihanate!"',
+            'imagePath' => 'images/ultimates/icon-kiriko.webp'
         ],
         'Lifeweaver' => [
             'name' => 'Tree of Life',
             'description' => 'Lifeweaver places a massive biolight tree that periodically heals allies in its area.',
-            'ultLine' => 'Let the tree of life embrace you.'
+            'ultLine' => '"Chīwit pkp̂xng chīwit!"',
+            'imagePath' => 'images/ultimates/icon-lifeweaver.webp'
         ],
         'Lúcio' => [
             'name' => 'Sound Barrier',
             'description' => 'Lúcio provides all nearby allies with a massive temporary shield.',
-            'ultLine' => 'Let\'s break it down!'
+            'ultLine' => '"Vamos esculachar!"',
+            'imagePath' => 'images/ultimates/icon-lùcio.webp'
         ],
         'Mercy' => [
             'name' => 'Valkyrie',
             'description' => 'Mercy gains the ability to fly, boosts her healing and damage beams, and gains increased mobility.',
-            'ultLine' => 'Heroes never die!'
+            'ultLine' => '"Helden sterben nicht!"',
+            'imagePath' => 'images/ultimates/icon-mercy.webp'
         ],
         'Moira' => [
             'name' => 'Coalescence',
             'description' => 'Moira fires a long-range beam that simultaneously heals allies and damages enemies.',
-            'ultLine' => 'Surrender to my will!'
+            'ultLine' => '"Géill do mo thoil!"',
+            'imagePath' => 'images/ultimates/icon-moira.webp'
         ],
         'Zenyatta' => [
             'name' => 'Transcendence',
             'description' => 'Zenyatta enters a state of heightened existence, becoming immune to damage and rapidly healing nearby allies.',
-            'ultLine' => 'Experience tranquility.'
+            'ultLine' => '"Pass into the Iris!"',
+            'imagePath' => 'images/ultimates/icon-zenyatta.webp'
         ]
     ];
     private const CHARACTER_INFOS = [
@@ -480,7 +535,7 @@ class AppFixtures extends Fixture
             'releaseDate' => '2016-05-24',
             'description' => 'A vigilante who uses a rifle and can sprint and heal himself.',
             'affiliation' => 'Overwatch (formerly)',
-            'imagePath' => '/images/heroes/soldier_76.webp'
+            'imagePath' => '/images/heroes/icon-soldier_76.webp'
         ],
         'Sombra' => [
             'name' => 'Sombra',
@@ -678,9 +733,11 @@ class AppFixtures extends Fixture
 
         // --- CATEGORIES ---
         $roles = [];
-        foreach (self::ROLE_NAMES as $roleName) {
+        foreach (self::ROLE_NAMES as $roleName  => $data) {
             $role = new Role();
-            $role->setName($roleName);
+            $role
+                ->setName($data['name'])
+                ->setImagePath($data['imagePath']);
             $manager->persist($role);
             $roles[] = $role;
         }
@@ -692,7 +749,8 @@ class AppFixtures extends Fixture
             $ultimate 
                 ->setName($data['name'])
                 ->setDescription($data['description'])
-                ->setUltLine($data['ultLine']);
+                ->setUltLine($data['ultLine'])
+                ->setImagePath($data['imagePath']);
             $manager->persist($ultimate);
             $ultimates[] = $ultimate;
         }
