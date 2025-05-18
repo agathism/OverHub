@@ -23,8 +23,11 @@
     </li>
     {% else %}
     <li>
-      <a class="translate-all block py-4 gap-2 list-none hover:text-ow-pink transition-colors" href="{{path('app_login')}}">Login/Register</a>
+      <a class="translate-all block py-4 gap-2 list-none hover:text-ow-pink transition-colors" href="{{path('app_login')}}">Login</a>
     </li>
+    {# <li>
+      <a class="translate-all block py-4 gap-2 list-none hover:text-ow-pink transition-colors" href="{{path('app_register')}}">Register</a>
+    </li> #}
     {% endif %}
   </ul>
 </nav>
