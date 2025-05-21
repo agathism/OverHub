@@ -19,24 +19,27 @@ class ContactType extends AbstractType
         $builder
         ->add('firstname', TextType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink',
                 'placeholder' => 'Your firstname'
             ],
-            'label_attr' => ['class' => 'form-label']
+            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+            'row_attr' => ['class' => 'mb-4']
         ])
         ->add('lastname', TextType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink',
                 'placeholder' => 'Your lastname'
             ],
-            'label_attr' => ['class' => 'form-label']
+            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+            'row_attr' => ['class' => 'mb-4']
         ])
         ->add('email', EmailType::class, [
             'attr' => [
-                'class' => 'form-control',
-                'placeholder' => 'Your email adress'
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink',
+                'placeholder' => 'example@domain.com'
             ],
-            'label_attr' => ['class' => 'form-label']
+            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+            'row_attr' => ['class' => 'mb-4']
         ])
         ->add('subject', ChoiceType::class, [
             'choices' => [
@@ -45,21 +48,25 @@ class ContactType extends AbstractType
                 'Technical support' => 'support',
                 'Partnership' => 'partnership'
             ],
-            'attr' => ['class' => 'form-control'],
-            'label_attr' => ['class' => 'form-label'],
+            'attr' => [
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink'
+            ],
+            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+            'row_attr' => ['class' => 'mb-4'],
             'placeholder' => 'Choose a subject'
         ])
         ->add('message', TextareaType::class, [
             'attr' => [
-                'class' => 'form-control',
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink',
                 'rows' => 5,
                 'placeholder' => 'Your message'
             ],
-            'label_attr' => ['class' => 'form-label']
+            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+        'row_attr' => ['class' => 'mb-4']
         ])
         ->add('Subscribe', SubmitType::class, [
-            'attr' => ['class' => 'btn btn-primary mt-3'],
-            'label' => 'Subscribe'
+            'attr' => ['class' => 'px-6 py-2 bg-ow-pink text-white rounded hover:bg-ow-dark-pink focus:outline-none transition duration-300 cursor-pointer'],
+            'label' => 'Send '
         ])
         ;
     }

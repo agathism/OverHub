@@ -17,18 +17,12 @@ class LoginType extends AbstractType
         $builder
             ->add( 'email', EmailType::class, [
                 'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'Your email adress'
-                ]
-            ])
-            ->add('roles')
-            ->add('password' , PasswordType::class, [
-                'attr' => [
-                    'class' => 'bg-zinc-100 text-black rounded-md px-4 py-2',
-                    'placeholder' => 'Your password'
+                'class' => 'form-label'
                 ],
                 'label_attr' => ['class' => 'form-label']
             ])
+            ->add('roles')
+            ->add('password' , PasswordType::class)
             ->add('confirm', SubmitType::class,[
                 'attr' => [
                     'class' => 'bg-zinc-800 text-white rounded-md px-4 py-2 hover:bg-zinc-700',

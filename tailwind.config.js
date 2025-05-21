@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         // Couleurs principales
         'ow-blue': '#010444',
-        'ow-violet': '#bb1b70',
+        'ow-violet': '#7D1C4A',
         'ow-pink': '#bb1b70',
         'ow-dark-blue': '#AFDDFF',
         // Couleurs neutres

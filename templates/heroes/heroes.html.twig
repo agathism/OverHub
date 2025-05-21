@@ -10,45 +10,18 @@
       <h1 class="text-3xl font-bold text-ow-violet my-8 text-center">All Heroes</h1>
 
       <!-- Heros -->
-      {# <div class="grid grid-cols-5 grid-rows-8 gap-4">
-        <div className="col-span-5 row-span-7">
-            {% for character in characters %}
-              <div class="w-1/6">
-                <div class="transform transition duration-300 hover:scale-110 lex flex-col rounded-lg shadow-lg h-52 w-56 hover:shadow-xl bg-white"> <div>
-                    <a href="{{ path('app_hero', { id: character.id }) }}">
-                  <div class="m-2 h-3/6 rounded-lg">
-                  <img src="{{ asset(character.imagePath) }}" alt="{{character.name}}" class="w-40 h-40 " />
-                  </div>
-                  <hgroup class="px-5 pt-2 flex flex-col"> 
-                    <h3 class="font-semibold">{{character.name}}</h3>
-              </hgroup>
-            </div>
-          </div> #}
-        {# {% endfor %}
-      </div> #}
-      {# {% for character in characters %}
-      <div class="flex flex-col w-30 h-28 bg-white rounded-sm overflow-hidden cursor-pointer p-4">
-        <div class="w-full h-3/5 rounded-sm mb-8 overflow-hidden flex items-center justify-center"> 
-        <img src="{{ asset(character.imagePath) }}" class="w-24">
-        </div>
-        <h2 class="m-0 text-base font-bold overflow-hidden">Titre</h2>
-      </div>
-      {% endfor %} #}
-      <div class="flex flex-col flex-wrap gap-5 ">
+      <div class="flex flex-row flex-wrap gap-5 justify-center mt-4">
       {% for character in characters %}
-      <div class="relative overflow-hidden gap-5 w-1/6 rounded-xl bg-[rgb(38,37,89)] drop-shadow-xl">
+      <div class="relative overflow-hidden gap-5 w-1/6 pb-4 rounded-xl bg-ow-blue drop-shadow-xl transform transition duration-300 hover:scale-110 ">
       <a href="{{ path('app_hero', { id: character.id }) }}">
     <div class="flex justify-evenly gap-6 rounded-lg p-4 text-white opacity-90"> 
         <img src="{{ asset(character.imagePath) }}" class="w-30">
         </div>
-        <div class="flex justify-between w-full items-center text-white">
-      <div class="">
+        <div class="flex flex-col text-white ml-4">
         <p class="text-2xl font-bold">{{character.name}}</p>
         <p class="">{{character.name}}</p>
       </div>
-      </div>
-      <div class="absolute transition-all duration-500 top-1/2 -left-1/2 group-hover:top-12 group-hover:-left-1/4 h-48 w-56 -z-10 bg-pink-800 blur-[50px]">
-    </div>
+      
   </div>
     {% endfor %}
     </div>
