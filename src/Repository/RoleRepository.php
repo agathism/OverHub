@@ -16,6 +16,16 @@ class RoleRepository extends ServiceEntityRepository
         parent::__construct($registry, Role::class);
     }
 
+    public function findRole(int $role_id): array
+    {
+        return $this->createQueryBuilder('c') // L'alias à mettre est la table de départ
+            ->join('c.role', 'r')
+            ->addSelect('r')
+            ->where('r.id = :roleId')
+            ->setParameter('roleId', $role_id)
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Role[] Returns an array of Role objects
 //     */

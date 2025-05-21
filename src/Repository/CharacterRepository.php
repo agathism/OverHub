@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Character;
+use App\Entity\Role;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -27,35 +28,35 @@ class CharacterRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
-    // return $this->render('heroes/tank.html.twig', [
-    //     'characters' => $characters,
-    //     'selectedRoleId' => $role_id,
-    // ]);
-    // }
-
-    //    /**
-//     * @return Character[] Returns an array of Character objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-    //    public function findOneBySomeField($value): ?Character
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    
+    public function findTanks (int $role_id): array
+    {
+        return $this->createQueryBuilder('c')
+            ->join('c.role', 'r')
+            ->addSelect('r')
+            ->where('r.id = :roleId')
+            ->setParameter('roleId', $role_id)
+            ->getQuery()
+            ->getResult();
+    }
+    public function findSupports (int $role_id): array
+    {
+        return $this->createQueryBuilder('c')
+            ->join('c.role', 'r')
+            ->addSelect('r')
+            ->where('r.id = :roleId')
+            ->setParameter('roleId', $role_id)
+            ->getQuery()
+            ->getResult();
+    }
+    public function findDamage (int $role_id): array
+    {
+        return $this->createQueryBuilder('c')
+            ->join('c.role', 'r')
+            ->addSelect('r')
+            ->where('r.id = :roleId')
+            ->setParameter('roleId', $role_id)
+            ->getQuery()
+            ->getResult();
+    }
 }

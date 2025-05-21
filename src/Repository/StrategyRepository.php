@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Strategy;
+use App\Entity\Character;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -13,9 +14,17 @@ class StrategyRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, StrategyRepository::class);
+        parent::__construct($registry, Strategy::class);
     }
 
+    public function findCharacterStrategy(Character $character): ?Strategy
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.characterName = :character') 
+            ->setParameter('character', $character)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 //    /**
 //     * @return Lore[] Returns an array of Lore objects
 //     */

@@ -23,7 +23,7 @@ final class IndexController extends AbstractController
     }
 
     #[Route('/contact', name: 'app_contact')]
-    public function contact(Request $request, EntityManagerInterface $em ): Response
+    public function contact(Request $request, EntityManagerInterface $em): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);

@@ -18,7 +18,7 @@ class Strategy
     private ?string $content = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Character $name = null;
+    private ?Character $characterName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
@@ -40,14 +40,14 @@ class Strategy
         return $this;
     }
 
-    public function getName(): ?Character
+    public function getCharacterName(): ?Character
     {
-        return $this->name;
+        return $this->characterName;
     }
 
-    public function setName(?Character $name): static
+    public function setCharacterName(?Character $characterName): static
     {
-        $this->name = $name;
+        $this->name = $characterName;
 
         return $this;
     }

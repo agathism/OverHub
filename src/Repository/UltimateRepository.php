@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Character;
 use App\Entity\Ultimate;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -16,6 +17,14 @@ class UltimateRepository extends ServiceEntityRepository
         parent::__construct($registry, Ultimate::class);
     }
 
+    public function findCharacterUltimate(Character $character): ?Ultimate
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.characterName = :character')
+            ->setParameter('character', $character)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 //    /**
 //     * @return Ultimate[] Returns an array of Ultimate objects
 //     */
