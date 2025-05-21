@@ -15,16 +15,29 @@ class RoleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Role::class);
     }
-
-    public function findRole(int $role_id): array
+    public function findTankRole(int $role_id): ?Role
     {
-        return $this->createQueryBuilder('c') // L'alias à mettre est la table de départ
-            ->join('c.role', 'r')
-            ->addSelect('r')
+        return $this->createQueryBuilder('r')
             ->where('r.id = :roleId')
             ->setParameter('roleId', $role_id)
             ->getQuery()
-            ->getResult();
+            ->getOneOrNullResult();
+    }
+    public function findDpsRole(int $role_id): ?Role
+    {
+        return $this->createQueryBuilder('r')
+            ->where('r.id = :roleId')
+            ->setParameter('roleId', $role_id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+    public function findSupportRole(int $role_id): ?Role
+    {
+        return $this->createQueryBuilder('r')
+            ->where('r.id = :roleId')
+            ->setParameter('roleId', $role_id)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 //    /**
 //     * @return Role[] Returns an array of Role objects

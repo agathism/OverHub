@@ -11,7 +11,7 @@ module.exports = {
         'ow-blue': '#010444',
         'ow-violet': '#7D1C4A',
         'ow-pink': '#bb1b70',
-        'ow-dark-blue': '#AFDDFF',
+        'ow-light-blue': '#020ab6',
         // Couleurs neutres
         'ow-white': '#FFFFFF',
         'ow-light-gray': '#F5F5F7',

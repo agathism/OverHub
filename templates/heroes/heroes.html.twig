@@ -7,12 +7,13 @@
 {% block body %}
   <main>
     <div class="px-4">
-      <h1 class="text-3xl font-bold text-ow-violet my-8 text-center">All Heroes</h1>
+      <h1 class="text-3xl font-bold text-ow-pink mt-8  text-center">All Heroes</h1>
 
       <!-- Tanks -->
-      <div class="flex flex-col">
-      <span class="border border-ow-dark-blue bg-ow-dark-blue rounded-md w-18 h-12">
-      <h2>{{role.name}}</h2>
+      <div class="flex flex-col items-center">
+      <span class="flex flex-row justify-center items-center border border-ow-pink bg-ow-pink rounded-md w-40 h-12 my-8">
+      <img src="{{ asset(roleTank.imagePath) }}" class="w-12 h-10">
+      <h2 class="text-white font-medium text-xl uppercase">{{roleTank.name}}</h2>
       </span>
       <div class="flex flex-row flex-wrap gap-5 justify-center mt-4">
       {% for character in tanks %}
@@ -23,15 +24,15 @@
         </div>
         <div class="flex flex-col text-white">
         <p class="text-2xl font-bold text-center">{{character.name}}</p>
-        <p class=""></p>
       </div>
     </div>
     {% endfor %}
 
       <!-- Damage -->
-      <div class="flex flex-col">
-      <span class="border border-ow-dark-blue bg-ow-dark-blue rounded-md w-18 h-12">
-      <h2>{{role.name}}</h2>
+      <div class="flex flex-col items-center">
+      <span class="flex flex-row justify-center items-center border border-ow-pink bg-ow-pink rounded-md w-40 h-12 my-8">
+      <img src="{{ asset(roleDps.imagePath) }}" class="w-12 h-10">
+      <h2 class="text-white font-medium text-xl uppercase">{{roleDps.name}}</h2>
       </span>
       <div class="flex flex-row flex-wrap gap-5 justify-center mt-4">
       {% for character in damages %}
@@ -42,15 +43,15 @@
         </div>
         <div class="flex flex-col text-white">
         <p class="text-2xl font-bold text-center">{{character.name}}</p>
-        <p class=""></p>
       </div>
     </div>
     {% endfor %}
 
       <!-- Support -->
-      <div class="flex flex-col">
-      <span class="border border-ow-dark-blue bg-ow-dark-blue rounded-md w-18 h-12">
-      <h2>{{role.name}}</h2>
+      <div class="flex flex-col items-center">
+      <span class="flex flex-row justify-center items-center border border-ow-pink bg-ow-pink rounded-md w-40 h-12 my-8">
+      <img src="{{ asset(roleSupport.imagePath) }}" class="w-12 h-10">
+      <h2 class="text-white font-medium text-xl uppercase">{{roleSupport.name}}</h2>
       </span>
       <div class="flex flex-row flex-wrap gap-5 justify-center mt-4">
       {% for character in supports %}
@@ -61,7 +62,6 @@
         </div>
         <div class="flex flex-col text-white">
         <p class="text-2xl font-bold text-center">{{character.name}}</p>
-        <p class=""></p>
       </div>
     </div>
     {% endfor %}

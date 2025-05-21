@@ -20,13 +20,17 @@ final class HeroesController extends AbstractController
         $damages = $characterRepository->findDamage(41);
         $supports = $characterRepository->findSupports(42);
         $characters = $characterRepository->findAll();
-        $roles = $roleRepository->findAll();
+        $roleTank = $roleRepository->findTankRole(40);
+        $roleDps = $roleRepository->findDpsRole(41);
+        $roleSupport = $roleRepository->findSupportRole(42);
         return $this->render('heroes/heroes.html.twig', [
             'characters' => $characters, 
-            'role' => $roles,
             'tanks' => $tanks,
             'supports' => $supports,
-            'damages' => $damages
+            'damages' => $damages,
+            'roleTank' => $roleTank,
+            'roleDps' => $roleDps,
+            'roleSupport' => $roleSupport,
         ]);
     }
 
