@@ -17,9 +17,21 @@ use Symfony\Component\Mime\Email;
 final class IndexController extends AbstractController
 {
     #[Route('/', name: 'homepage')]
-    public function home(): Response
+    public function home(Request $request, EntityManagerInterface $em, NewsletterSubscribedConfirmation $confirmationService): Response
     {
-        return $this->render('index/home.html.twig');
+        $newsletter = new Newsletter();
+        $form = $this->createForm(NewsletterType::class, $newsletter);
+        $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($newsletter);
+            $em->flush();
+            $confirmationService->sendEmail($newsletter);
+            $this->addFlash('success', 'Your subscription has been taken into account, you will receive a mail of confirmation');
+        }
+        return $this->render('index/home.html.twig', [
+            'newsletterForm' => $form
+        ]);
     }
 
     #[Route('/contact', name: 'app_contact')]
@@ -43,23 +55,5 @@ final class IndexController extends AbstractController
         return $this->render('index/contact.html.twig', [
         'contactForm' => $form 
     ]);
-    }
-
-    #[Route('/newsletter', name: 'app_newsletter')]
-    public function subscribe(Request $request, EntityManagerInterface $em, NewsletterSubscribedConfirmation $confirmationService): Response 
-    {
-        $newsletter = new Newsletter();
-        $form = $this->createForm(NewsletterType::class, $newsletter);
-        $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($newsletter);
-            $em->flush();
-            $confirmationService->sendEmail($newsletter);
-            $this->addFlash('success', 'Your subscription has been taken into account, you will receive a mail of confirmation');
-        }
-        return $this->render('newsletter/subscribe.html.twig', [
-            'newsletterForm' => $form
-        ]);
     }
 }

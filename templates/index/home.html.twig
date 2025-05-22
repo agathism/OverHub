@@ -38,26 +38,24 @@
       <button class="mt-6 bg-ow-pink hover:bg-opacity-90 text-white px-6 py-2 rounded-md">
       </button>
     </div>
-  </div>
-  </div>
-          <div class="flex justify-center">
-            <form class=" py-6 relative overflow-hidden flex flex-col justify-around w-96 border border-ow-blue rounded-lg bg-ow-blue p-3 px-6">
-            <span class="font-extrabold text-2xl text-ow-white my-2">Get more updates...</span>
-            <p class="text-ow-white my-2">
-              Sign up for our newsletter and you'll be the first to find out about new
-              features.
-            </p>
-            <div class="flex items-center gap-1">
-              <div class="rounded-lg w-64 overflow-hidden ">
-                <input type="text" placeholder="Your mail..." class="bg-ow-white ring-0 outline-none border border-neutral-500 text-neutral-900 placeholder-ow-pink text-sm rounded-lg placeholder-opacity-60  block w-full p-2.5"/>
-              </div>
-              <button class="bg-ow-pink hover:bg-ow-violet text-neutral-50 p-2 my-2 rounded-lg">
-              Subscribe
-              </button>
+    </div>
+    </div>
+        <div class="flex justify-center">
+        <div class="py-6 relative overflow-hidden flex flex-col justify-around w-96 border border-ow-blue rounded-lg bg-ow-blue p-3 px-6">
+        {{ form_start(newsletterForm) }}
+          <span class="font-extrabold text-2xl text-ow-white my-2">Get more updates...</span>
+          <p class="text-ow-white my-2">
+            Sign up for our newsletter and you'll be the first to find out about new features.
+          </p>
+          <div class="flex items-center gap-1">
+            <div class="rounded-lg w-64 overflow-hidden">
+              {{ form_widget(newsletterForm.email)}}
             </div>
-            </form>
+            {{ form_widget(newsletterForm.Subscribe) }}
           </div>
-        </div>
+      {{ form_end(newsletterForm) }}
+      </div>
+    </div>
 </main>
 
 

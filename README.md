@@ -35,17 +35,13 @@ Voici les étapes que j’ai suivies pour mener à bien ce projet d’applicatio
 
 ### 3. 🌟Listes des fonctionnalités principales
 1. **Encyclopédie des héros**
-- Base de données complète de tous les personnages d'Overwatch
+- Base de données complète de tous les personnages d'Overwatch.
 - Fiches détaillées incluant biographies, capacités...
 2. **Profils personnalisés**
-- Création de comptes
-- Suivi des héros et sujets favoris
-- Système de notifications pour les mises à jour d'intérêt
-3. **Communauté et Interaction**
-- Espaces de discussion organisés par sujets
-- Plateforme d'entraide entre joueurs
-- Communication directe entre utilisateurs
-4. **Contact et Aide**
+- Création de comptes.
+- Suivi des héros et sujets favoris.
+- Système de notifications pour les mises à jour.
+3. **Contact et Aide**
 - Newsletter disponible pour être notifié de nouvelles fonctionnalités.
 - Formulaire de contact pour les utilisateurs ayant besoin d'aide.
 
@@ -61,8 +57,14 @@ Voici les étapes que j’ai suivies pour mener à bien ce projet d’applicatio
 | Problème  | Solution  | Notes |
 | :------------ |:---------------:| -----:|
 | **@Hotwired/stimulus Not Found** |Supprimer `bootstrap.js` et le dossier `controllers` aussi. Supprimer aussi les dépendances qui correspondent dans le fichier `importmap.php`. Ensuite taper la commande : `composer remove symfony/stimulus-bundle symfony/ux-turbo` pour bien retirer les dépendances. |Je n'ai pas encore rencontré ce problème sur le moment mais il apparaît toujours plus tard dans mes applications. Je ne veux pas qu'il intérrompe mon rythme de travail donc je préfère m'en débarasser avant qu'il n'arrive.|
-| **Messengers_message**    |   Supprimer le fichier dans le `package/messenger.yaml` puis faire ma migration afin qu'elle soit prise en compte.     |    Comme recommendé je l'ai supprimé directement pour éviter tout conflit futur.       |
+| **Messengers_message**    | Supprimer le fichier dans le `package/messenger.yaml` puis faire ma migration afin qu'elle soit prise en compte.     |    Comme recommendé je l'ai supprimé directement pour éviter tout conflit futur.       |
 |   **Non-concordance entre les noms déclarés dans les fichiers**   |  Adapter les variables de l'entité `Role.php` dans `Character.php` | J'ai eu du mal avant de voir d'où provenait l'erreur mais finalement je l'ai reglé. La prochaine fois je prendrais des notes plus précise quant au nom de mes entités et propriétés et je respecterais le nommage recommendé pour m'éviter d'autres problèmes.  |
-| **Migrations qui entrent en conflit** |Supprimer les migrations passées et en faire une nouvelle tout en vérifiant le fichier avant de le valider | Le fait d'avoir plusieurs version de migration ainsi que le fait que j'avais changé la clé étrangère dans la table `character` m'a causé quelques problèmes. Je veillerais à faire le ménage dans mes fichiers pour être plus tranquille | 
+| **Migrations qui entrent en conflit** |Supprimer les migrations passées et en faire une nouvelle tout en vérifiant le fichier avant de le valider | Le fait d'avoir plusieurs version de migration ainsi que le fait que j'avais changé la clé étrangère dans la table `character` m'a causé quelques problèmes. Je veillerais à faire le ménage dans mes fichiers pour être plus tranquille. | 
 | **Erreur de chargement de données dans un tableau**  |  Transformer le tableau en string. J'utilise la variable `$data['name']` dans la boucle `foreach` | J'avais oublié qu'il fallait convertir mon tableau donc j'avais eu cette erreur mais après un peu de recherche j'ai eu la solution. Je n'ai pas perdu trop de temps dessus.  |
+
+## 6.⚡Fonctionnalités à venir
+| Fonctionnalité | Notes |
+| :------------ | -----:|
+| **AddFlash qui disparaître après un certains temps** | Je ne pense pas pouvoir faire ça avec seulement TailwindCSS. Je crois qu'avec du JavaScript cela sera plus facile à faire. Donc je continuerais à développer ette fonctionnalité après avoir appris ce language en profondeur.|
+| **Commentaire en dessous des personnages** | Vu que je dois rendre le projet bientôt je ne penses pas que j'aurais le temps de le faire. Je le rajouterais plus tard.|
 ## Fin
