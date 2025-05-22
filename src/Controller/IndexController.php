@@ -46,11 +46,12 @@ final class IndexController extends AbstractController
     }
 
     #[Route('/newsletter', name: 'app_newsletter')]
-    public function newsletter(Request $request, EntityManagerInterface $em, NewsletterSubscribedConfirmation $confirmationService): Response 
+    public function subscribe(Request $request, EntityManagerInterface $em, NewsletterSubscribedConfirmation $confirmationService): Response 
     {
         $newsletter = new Newsletter();
         $form = $this->createForm(NewsletterType::class, $newsletter);
         $form->handleRequest($request);
+
             if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($newsletter);
             $em->flush();

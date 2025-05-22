@@ -10,8 +10,8 @@ module.exports = {
         // Nav, Footer, Cards
         'ow-blue': '#02042d', 
         'ow-violet': '#7D1C4A',
-        'ow-pink': '#cf1974',
-        'ow-light-blue': '#020ab6',
+        'ow-pink': '#a20051',
+        'ow-lightblue': '#493D9E',
         'ow-white': '#f4f4f4',
         'ow-input' : '#323461',
         'ow-light-gray': '#F5F5F7',

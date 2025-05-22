@@ -16,8 +16,6 @@ class NewsletterSubscribedConfirmation
 
     public function sendEmail(Newsletter $newsletter): void
     {
-        // envoi d'un email de confirmation
-        // Construction d'un email
         $email = (new Email())
         ->from($this->adminEmail)
         ->to($newsletter->getEmail())
@@ -25,7 +23,6 @@ class NewsletterSubscribedConfirmation
         ->text('Your mail ' . $newsletter->getEmail() . ' has been registered in our liste of subscribers.')
         ->html('<p>Your mail ' . $newsletter->getEmail() . ' has been registered in our liste of subscribers.</p>');
 
-        // Utilisation de la dépendance mailer pour envoyer l'email
         $this->mailer->send($email);
     }
 }
