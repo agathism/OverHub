@@ -7,13 +7,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Couleurs principales
-        'ow-blue': '#010444',
+        // Nav, Footer, Cards
+        'ow-blue': '#02042d', 
         'ow-violet': '#7D1C4A',
-        'ow-pink': '#bb1b70',
+        'ow-pink': '#cf1974',
         'ow-light-blue': '#020ab6',
-        // Couleurs neutres
-        'ow-white': '#FFFFFF',
+        'ow-white': '#f4f4f4',
+        'ow-input' : '#323461',
         'ow-light-gray': '#F5F5F7',
       },
       animation: {

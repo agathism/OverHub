@@ -19,26 +19,26 @@ class ContactType extends AbstractType
         $builder
         ->add('firstname', TextType::class, [
             'attr' => [
-                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink',
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ow-pink',
                 'placeholder' => 'Your firstname'
             ],
-            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+            'label_attr' => ['class' => 'block text-ow-pink mb-3'],
             'row_attr' => ['class' => 'mb-4']
         ])
         ->add('lastname', TextType::class, [
             'attr' => [
-                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink',
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ow-pink',
                 'placeholder' => 'Your lastname'
             ],
-            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+            'label_attr' => ['class' => 'block text-ow-pink mb-3'],
             'row_attr' => ['class' => 'mb-4']
         ])
         ->add('email', EmailType::class, [
             'attr' => [
-                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink',
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ow-pink',
                 'placeholder' => 'example@domain.com'
             ],
-            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+            'label_attr' => ['class' => 'block text-ow-pink mb-3'],
             'row_attr' => ['class' => 'mb-4']
         ])
         ->add('subject', ChoiceType::class, [
@@ -49,24 +49,24 @@ class ContactType extends AbstractType
                 'Partnership' => 'partnership'
             ],
             'attr' => [
-                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink'
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ow-pink'
             ],
-            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+            'label_attr' => ['class' => 'block text-ow-pink mb-3'],
             'row_attr' => ['class' => 'mb-4'],
             'placeholder' => 'Choose a subject'
         ])
         ->add('message', TextareaType::class, [
             'attr' => [
-                'class' => 'w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-ow-pink',
+                'class' => 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ow-pink',
                 'rows' => 5,
                 'placeholder' => 'Your message'
             ],
-            'label_attr' => ['class' => 'block text-ow-blue mb-1'],
+            'label_attr' => ['class' => 'block  text-ow-pink mb-3'],
         'row_attr' => ['class' => 'mb-4']
         ])
         ->add('Subscribe', SubmitType::class, [
-            'attr' => ['class' => 'px-6 py-2 bg-ow-pink text-white rounded hover:bg-ow-dark-pink focus:outline-none transition duration-300 cursor-pointer'],
-            'label' => 'Send '
+            'attr' => ['class' => 'px-6 py-2 bg-ow-pink text-white rounded-lg hover:bg-ow-dark-pink focus:outline-none transition duration-300 cursor-pointer'],
+            'label' => 'Send'
         ])
         ;
     }
