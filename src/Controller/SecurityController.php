@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Mail\NewsletterSubscribedConfirmation;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -23,16 +26,9 @@ class SecurityController extends AbstractController
     }
 
     #[Route(path: '/register', name: 'app_register')]
-    public function register(AuthenticationUtils $authenticationUtils): Response
+    public function register(Request $request, EntityManagerInterface $em, NewsletterSubscribedConfirmation $confirmationService): Response
     {
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->render('security/register.html.twig', [
-            'last_username' => $lastUsername,
-            'error' => $error
-        ]);
+        return $this->render('security/register.html.twig');
     }
 
     #[Route(path: '/logout', name: 'app_logout')]

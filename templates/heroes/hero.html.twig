@@ -5,32 +5,113 @@
 {% endblock %}
 
 {% block body %}
-    <main>
-    <h1>{{ character.name }}</h1>
-    <p>{{ character.role.name }}</p>
-    <p>{{ character.occupation }}</p>
-    <p>{{ character.affiliation }}</p>
-    <p>{{ character.age }}</p>
-    <p>{{ character.nationality }}</p>
-    <p>{{ character.description }}</p>
-    {% if ultimate %}
-    <h2>Ultimate</h2>
-    <p>{{ ultimate.name }}</p>
-    <p>{{ ultimate.description }}</p>
-    <p>{{ ultimate.ultLine }}</p>
-    <p>{{ ultimate.imagePath }}</p>
-    {% else %}
-        <p>Ce personnage n'a pas d'ultimate.</p>
-    {% endif %}
-    {% if strategy %}
-    <h2>Strategy</h2>
-    <p>{{ strategy.title }}</p>
-    <p>{{ strategy.content }}</p>
-    {% else %}
-        <p>Ce personnage n'a pas de strategie.</p>
-    {% endif %}
-  <p>
-    <a href="{{ path('app_heroes') }}">Retour à la liste</a>
-  </p>
-    </main>
+<main>
+  <div class="flex justify-center items-center">
+    <div class="flex flex-col w-4/6 justify-center mt-8">
+        <div class="flex justify-center">
+          <div class="w-2/5">
+            <img src="{{ asset(character.imagePath) }}" alt="{{ character.name}}">
+          </div>
+          <div class="flex flex-col w-3/5">
+            <hgroup class="bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+              <h1 class="text-3xl">{{ character.name }}</h1>
+            </hgroup>
+            <span class="flex flex-row justify-center items-center gap-4 my-2">
+              <div class="w-2/4">
+                <p class="text-sm text-center mb-2">Role:</p>
+                <div class="flex flex-row justify-center items-center bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+                  <img src="{{ asset(character.role.imagePath) }}" class="w-8 h-6">
+                  <p class="text-xl">{{ character.role.name }}</p>
+                </div>
+              </div>
+              <div class="w-2/4">
+                <p class="text-sm text-center mb-2">Age:</p>
+                  <div class="bg-ow-blue text-white justify-center items-center text-center h-full border rounded-lg border-ow-blue">
+                    <p class="text-xl">{{ character.age }}</p>
+                  </div>
+              </div>
+            </span>
+            <span class="flex flex-row justify-center items-center gap-4 my-2">
+              <div class="w-2/4">
+                  <p class="text-sm text-center mb-2">Nationality:</p>
+                <div class="flex flex-row justify-center items-center bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+                  <p class="text-xl">{{ character.nationality }}</p>
+                </div>
+              </div>
+              <div class="w-2/4">
+                <p class="text-sm text-center mb-2">Date of release:</p>
+                <div class="flex flex-row justify-center items-center bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+                  <p>{{ character.releaseDate|date('Y-m-d') }}</p> 
+                </div>
+              </div>
+            </span>
+            <span class="flex flex-row justify-center items-center gap-4 my-2">
+            <div class="w-2/4">
+                <p class="text-sm text-center mb-2">Occupation:</p>
+                <div class="flex flex-row justify-center items-center bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+                  <p class="text-xl">{{ character.occupation }}</p>
+                </div>
+            </div>
+            <div class="w-2/4">
+                <p class="text-sm text-center mb-2">Affiliation:</p>
+                <div class="flex flex-row justify-center items-center bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+                  <p class="text-xl">{{ character.affiliation }}</p>
+                </div>
+            </div>
+            </span>
+          </div>
+      </div>
+    <div class="flex flex-col justify-center">
+      <div class=" mt-8 mb-4 flex flex-col">
+        <h2 class="text-2xl my-1">Description:</h2>
+        <div class="bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+          <p class="text-xl">{{ character.description }}</p>
+        </div>
+      </div>
+      <div class=" flex flex-col">
+        <h2 class="text-2xl mb-4">{{ strategy.title }}:</h2>
+          <div class="bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+            {% if strategy %}
+            <p class="text-xl">{{ strategy.content }}</p>
+            {% else %}
+                <p>This character has no strategy.</p>
+            {% endif %}
+          </div>
+      </div>
+      <div class="flex flex-col">
+            {% if ultimate %}
+          <h2 class="text-2xl mt-4">Ultimate:</h2>
+          <div class="flex flex-row justify-center items-center gap-4">
+            <span>
+              <div class="flex justify-center items-center bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+                <img src="{{ asset( ultimate.imagePath) }} " alt="{{ character.name }}'s Ult Logo" class="w-28 h-24">
+              </div>
+                <div class="text-ow-blue text-center">
+                  <p class="text-md">{{ ultimate.ultLine }}</p>
+                </div>
+            </span>
+              <div class="flex flex-col">
+                <div class=" flex justify-center items-center bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+                  <p class="text-xl">{{ ultimate.name }}</p>
+                </div> 
+                <div class="">
+                  <p class="text-sm text-center my-2">Description:</p>
+                  <div class="flex justify-center items-center bg-ow-blue text-white text-center border rounded-lg border-ow-blue">
+                    <p class="text-xl">{{ ultimate.description }}</p>
+                  </div>
+                </div>
+                {% else %}
+                    <p>This character has no ultimate.</p>
+                {% endif %}
+              </div>
+          </div>
+        </div>
+    </div>
+    <div>
+      <a href="{{ path('app_heroes') }}" class="bg-ow-pink text-ow-white cursor-pointer hover:opacity-85 w-2/6 mt-4 flex justify-center items-center rounded-lg h-14">
+      <p class="text-xl text-center">Go back to the Heroes list</p>
+      </a>
+    </div>
+  </div>
+</main>
 {% endblock %}

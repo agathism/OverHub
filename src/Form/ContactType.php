@@ -22,7 +22,7 @@ class ContactType extends AbstractType
                 'class' => 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ow-pink',
                 'placeholder' => 'Your firstname'
             ],
-            'label_attr' => ['class' => 'block text-ow-pink mb-3'],
+            'label_attr' => ['class' => 'block text-ow-white mb-3'],
             'row_attr' => ['class' => 'mb-4']
         ])
         ->add('lastname', TextType::class, [
@@ -30,7 +30,7 @@ class ContactType extends AbstractType
                 'class' => 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ow-pink',
                 'placeholder' => 'Your lastname'
             ],
-            'label_attr' => ['class' => 'block text-ow-pink mb-3'],
+            'label_attr' => ['class' => 'block text-ow-white mb-3'],
             'row_attr' => ['class' => 'mb-4']
         ])
         ->add('email', EmailType::class, [
@@ -38,7 +38,7 @@ class ContactType extends AbstractType
                 'class' => 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ow-pink',
                 'placeholder' => 'example@domain.com'
             ],
-            'label_attr' => ['class' => 'block text-ow-pink mb-3'],
+            'label_attr' => ['class' => 'block text-ow-white mb-3'],
             'row_attr' => ['class' => 'mb-4']
         ])
         ->add('subject', ChoiceType::class, [
@@ -51,7 +51,7 @@ class ContactType extends AbstractType
             'attr' => [
                 'class' => 'w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-ow-pink'
             ],
-            'label_attr' => ['class' => 'block text-ow-pink mb-3'],
+            'label_attr' => ['class' => 'block text-ow-white mb-3'],
             'row_attr' => ['class' => 'mb-4'],
             'placeholder' => 'Choose a subject'
         ])
@@ -61,11 +61,11 @@ class ContactType extends AbstractType
                 'rows' => 5,
                 'placeholder' => 'Your message'
             ],
-            'label_attr' => ['class' => 'block  text-ow-pink mb-3'],
+            'label_attr' => ['class' => 'block text-ow-white mb-3'],
         'row_attr' => ['class' => 'mb-4']
         ])
         ->add('Subscribe', SubmitType::class, [
-            'attr' => ['class' => 'px-6 py-2 bg-ow-pink text-white rounded-lg hover:bg-ow-dark-pink focus:outline-none transition duration-300 cursor-pointer'],
+            'attr' => ['class' => 'px-6 py-2 bg-ow-pink text-white rounded-lg hover:bg-ow-white hover:text-ow-pink focus:outline-none transition duration-300 cursor-pointer'],
             'label' => 'Send'
         ])
         ;

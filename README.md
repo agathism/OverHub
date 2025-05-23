@@ -62,7 +62,7 @@ Voici les étapes que j’ai suivies pour mener à bien ce projet d’applicatio
 | **Migrations qui entrent en conflit** |Supprimer les migrations passées et en faire une nouvelle tout en vérifiant le fichier avant de le valider | Le fait d'avoir plusieurs version de migration ainsi que le fait que j'avais changé la clé étrangère dans la table `character` m'a causé quelques problèmes. Je veillerais à faire le ménage dans mes fichiers pour être plus tranquille. | 
 | **Erreur de chargement de données dans un tableau**  |  Transformer le tableau en string. J'utilise la variable `$data['name']` dans la boucle `foreach` | J'avais oublié qu'il fallait convertir mon tableau donc j'avais eu cette erreur mais après un peu de recherche j'ai eu la solution. Je n'ai pas perdu trop de temps dessus.  |
 
-## 6.⚡Fonctionnalités à venir
+## 6. 🔮 Fonctionnalités à venir
 | Fonctionnalité | Notes |
 | :------------ | -----:|
 | **AddFlash qui disparaître après un certains temps** | Je ne pense pas pouvoir faire ça avec seulement TailwindCSS. Je crois qu'avec du JavaScript cela sera plus facile à faire. Donc je continuerais à développer ette fonctionnalité après avoir appris ce language en profondeur.|
