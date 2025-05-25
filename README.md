@@ -39,7 +39,7 @@ Voici les étapes que j’ai suivies pour mener à bien ce projet d’applicatio
 - Base de données complète de tous les personnages d'Overwatch.
 - Fiches détaillées incluant biographies, capacités...
 2. **Profils personnalisés**
-- Création de comptes.
+- Création de comptes et possibilité de changer son email et mot de passe.
 3. **Contact et Aide**
 - Newsletter disponible pour être notifié de nouvelles fonctionnalités.
 - Formulaire de contact pour les utilisateurs ayant besoin d'aide.
@@ -61,5 +61,4 @@ Voici les étapes que j’ai suivies pour mener à bien ce projet d’applicatio
 | **Commentaire en dessous des personnages** | Vu que je dois rendre le projet bientôt je ne penses pas que j'aurais le temps de le faire. Je le rajouterais plus tard.|
 |**Mettre des héros en favoris**| Le manque de temps me force aussi à mettre cette idée de côté. J'espère développer cette fonctionnalité dans le futur. Ce serait très cool.|
 
-## 
 ## Fin
