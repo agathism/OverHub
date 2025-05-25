@@ -10,15 +10,6 @@
           <h1 class="text-white text-2xl">Sign in!</h1>
             <div class="flex items-center justify-center">
               <form method="POST" action="{{ path('app_login') }}">
-              {# {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-              {% endif %}
-
-              {% if app.user %}
-                <div class="mb-3">
-                  You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-                </div>
-              {% endif %} #}
                 <label for="_username" class="text-ow-white">Email</label>
                 <input type="email" name="_username" id="username" class="w-full my-4 p-2 bg-ow-input rounded-md border border-gray-700 focus:border-ow-input hover:border-ow-input transition-all duration-200"/>
                 <label for="password" class="text-ow-white">Password</label>

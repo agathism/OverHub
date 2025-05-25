@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit your profile{% endblock %}
+
+{% block body %}
+<div class="my-14 p-6">
+  <div class="max-w-2xl mx-auto bg-ow-blue rounded-lg shadow-md p-8">
+    <h1 class="text-3xl font-bold text-ow-white mb-6">Edit your profil</h1>
+
+    {{ form_start(profileForm) }}
+        {{ form_row(profileForm.email) }}
+        {{ form_row(profileForm.password) }}
+      <button type="submit" class="px-6 py-3 my-4 bg-ow-pink text-white rounded-md font-semibold hover:bg-ow-white hover:text-ow-pink transition-colors">
+        Validate
+      </button>
+    {{ form_end(profileForm) }}
+  </div>
+</div>
+{% endblock %}

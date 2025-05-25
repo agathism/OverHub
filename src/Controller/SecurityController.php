@@ -40,7 +40,7 @@ class SecurityController extends AbstractController
             $user->setPassword($hashedPassword);
             $em->persist($user);
             $em->flush();
-
+            $this->addFlash('success', 'You have successfully created your account!');
             // Redirection vers login ou page d'accueil
             return $this->redirectToRoute('homepage');
         }
