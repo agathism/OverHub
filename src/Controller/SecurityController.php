@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
-use App\Mail\NewsletterSubscribedConfirmation;
+use App\Entity\User;
+use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -25,10 +27,26 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    #[Route(path: '/register', name: 'app_register')]
-    public function register(Request $request, EntityManagerInterface $em, NewsletterSubscribedConfirmation $confirmationService): Response
+    #[Route('/register', name: 'app_register')]
+    public function register(Request $request, EntityManagerInterface $em, UserPasswordHasherInterface $passwordHasher): Response
     {
-        return $this->render('security/register.html.twig');
+        $user = new User();
+        $form = $this->createForm(RegisterType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Je vais ensuite hasher le mot de passe
+            $hashedPassword = $passwordHasher->hashPassword($user, $form->get('plainPassword')->getData());
+            $user->setPassword($hashedPassword);
+            $em->persist($user);
+            $em->flush();
+
+            // Redirection vers login ou page d'accueil
+            return $this->redirectToRoute('homepage');
+        }
+        return $this->render('security/register.html.twig', [
+            'registerForm' => $form->createView(),
+        ]);
     }
 
     #[Route(path: '/logout', name: 'app_logout')]

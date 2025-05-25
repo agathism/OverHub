@@ -14,7 +14,7 @@
     </li>
   </ul>
   <ul class="flex flex-row text-xl gap-8">
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
     <li>
       <a class="translate-all block py-4 gap-2 list-none hover:text-ow-pink transition-colors" href="{{path('app_profile')}}">Profile</a>
     </li>

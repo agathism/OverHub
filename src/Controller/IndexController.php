@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Mail\NewsletterSubscribedConfirmation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Newsletter;
@@ -35,7 +36,7 @@ final class IndexController extends AbstractController
     }
 
     #[Route('/contact', name: 'app_contact')]
-    public function contact(Request $request, EntityManagerInterface $em): Response
+    public function contact(Request $request, EntityManagerInterface $em, MailerInterface $mailer): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -50,6 +51,9 @@ final class IndexController extends AbstractController
             ->subject('Welcome!')
             ->text('Your email ' . $contact->getEmail() . ' has been successfully registered for the newsletter.')
             ->html('<p>Your Email' . $contact->getEmail() . ' has been successfully registered for the newsletter.</p>');
+
+            $mailer->send($email);
+
             $this->addFlash('success', 'You have successfully sent your mail.');
         }
         return $this->render('index/contact.html.twig', [
